@@ -32,7 +32,6 @@ func _physics_process(delta):
 	if coyote_jumping:
 		if not is_floored():
 			jump_frames += 1
-			print(jump_frames)
 		else:
 			if jump_frames < max_jump_frames:
 				velocity.y = jump_speed
