@@ -2,48 +2,61 @@
 
 [ext_resource path="res://Nodes/SlideBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://LD/Level1Bg.png" type="Texture" id=4]
 
-[sub_resource type="ConcavePolygonShape2D" id=3]
-segments = PoolVector2Array( 0, 0, 128, 0, 128, 0, 128, 128, 128, 128, 0, 128, 0, 128, 0, 0 )
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
 
-[sub_resource type="TileSet" id=2]
-0/name = "icon.png"
-0/texture = ExtResource( 3 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 128, 128 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 3 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 3 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
+uniform float alpha = 1.0;
+uniform float inner_radius = 0.0;
+uniform float outer_radius = 1.0;
+
+float circle(vec2 position, float radius, float feather)
+{
+	return smoothstep(radius, radius + feather, length(position - vec2(0.5)));
+}
+
+
+void fragment() {
+	vec4 tex = texture(TEXTURE, UV);
+	
+	//COLOR = tex - vec4(0,0,0,0.1);
+	COLOR = vec4(tex.rgb, circle(UV, 0.55, -0.2));
+	
+	//float x = abs(UV.r-.5)*2.0;
+	//float y = abs(UV.g-.5)*2.0;
+	//float q = 1.0-(1.0-sqrt(x*x+y*y)/outer_radius)/(1.0-inner_radius);
+	//COLOR = vec4(0, 0, 0, q*alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 3 )
+shader_param/alpha = 1.0
+shader_param/inner_radius = 0.0
+shader_param/outer_radius = 1.0
 
 [node name="Main" type="Node2D"]
 
+[node name="Level1Bg" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 995, -200 )
+scale = Vector2( 0.70463, 0.70463 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -500, -682, 2483, -702, 2428, -141, 2188, -139, 2185, -374, 2011, -349, 1992, -396, 1412, -413, 1396, -317, 1282, -313, 1275, -258, 1214, -233, 1042, -251, 1021, -290, 823, -294, 799, -422, 36, -400, -362, -382, -360, 136, -48, 136, -48, 56, 184, 56, 184, 128, 664, 128, 664, -48, 1032, -48, 1040, -136, 1256, -136, 1256, -48, 2104, -48, 2104, 24, 2192, 24, 2192, -64, 2424, -64, 2419, 263, -653, 282 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -317, 83 )
 speed = 500
 jump_speed = -1000
 friction = 0.5
 
-[node name="TileMap" type="TileMap" parent="."]
-scale = Vector2( 0.5, 0.5 )
-tile_set = SubResource( 2 )
-cell_size = Vector2( 128, 128 )
-show_collision = true
-format = 1
-tile_data = PoolIntArray( -393200, 0, 0, -393199, 0, 0, -393198, 0, 0, -393197, 0, 0, -393196, 0, 0, -393195, 0, 0, -393194, 0, 0, -393193, 0, 0, -393192, 0, 0, -393191, 0, 0, -393190, 0, 0, -393189, 0, 0, -393188, 0, 0, -393187, 0, 0, -393186, 0, 0, -393185, 0, 0, -393184, 0, 0, -393183, 0, 0, -393182, 0, 0, -393181, 0, 0, -327664, 0, 0, -327645, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262132, 0, 0, -262131, 0, 0, -262130, 0, 0, -262129, 0, 0, -262128, 0, 0, -262109, 0, 0, -131074, 0, 0, -196573, 0, 0, -65538, 0, 0, -131043, 0, 0, -2, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65502, 0, 0, -65501, 0, 0, 65534, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 16, 0, 0, 20, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 0, 0, 65556, 0, 0 )
-
 [node name="SlideBox" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1056, 32 )
+position = Vector2( 438, 79 )
+
+[node name="SlideBox2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2148, -21 )
