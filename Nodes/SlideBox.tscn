@@ -6,6 +6,7 @@
 extents = Vector2( 32, 32 )
 
 [node name="SlideBox" type="RigidBody2D"]
+gravity_scale = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
