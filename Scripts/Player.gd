@@ -6,6 +6,13 @@ export (int) var jump_speed = -1800
 export (int) var gravity = 4000
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.25
+export (int) var max_jump_frames = 10
+var coyote_jumping = false
+var jump_frames = 0
+
+onready var left_floor_cast = $LeftFloorCast
+onready var center_floor_cast = $CenterFloorCast
+onready var right_floor_cast = $RightFloorCast
 
 const PUSH_FORCE = 100
 const BLOCK_MAX_VELOCITY = 180
@@ -22,8 +29,19 @@ func get_input():
 
 
 func _physics_process(delta):
+	if coyote_jumping:
+		if not is_floored():
+			jump_frames += 1
+			print(jump_frames)
+		else:
+			if jump_frames < max_jump_frames:
+				velocity.y = jump_speed
+				coyote_jumping = false
+				jump_frames = 0
+
 	get_input()
-	if not is_on_floor():
+
+	if not is_floored():
 		velocity.y += gravity * delta
 
 	for i in get_slide_count():
@@ -35,5 +53,19 @@ func _physics_process(delta):
 
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump"):
+		if is_floored():
 			velocity.y = jump_speed
+			jump_frames = 0
+		else:
+			coyote_jumping = true
+			jump_frames = 0
+
+func is_floored():
+	if center_floor_cast.is_colliding():
+		return true
+	if left_floor_cast.is_colliding():
+		return true
+	if right_floor_cast.is_colliding():
+		return true
+	return false

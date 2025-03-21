@@ -10,6 +10,7 @@ extents = Vector2( 10, 20 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+max_jump_frames = 3
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -23,3 +24,21 @@ current = true
 process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 10.0
+
+[node name="CenterFloorCast" type="RayCast2D" parent="."]
+position = Vector2( 0, 20 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 5
+
+[node name="LeftFloorCast" type="RayCast2D" parent="."]
+position = Vector2( -10, 20 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 5
+
+[node name="RightFloorCast" type="RayCast2D" parent="."]
+position = Vector2( 10, 20 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 5
