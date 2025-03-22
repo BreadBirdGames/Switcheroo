@@ -48,7 +48,7 @@ position = Vector2( 1148, -178 )
 scale = Vector2( 10.6937, 4.41325 )
 
 [node name="LevelLoader2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2390, -87 )
+position = Vector2( 2393, -87 )
 scale = Vector2( 2.35122, 3.19851 )
 load_scene = ExtResource( 9 )
 

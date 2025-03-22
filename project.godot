@@ -51,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+DialogueInterface="*res://Scripts/DialogueInterface.gd"
 
 [editor_plugins]
 
