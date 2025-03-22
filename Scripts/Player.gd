@@ -1,6 +1,20 @@
 extends KinematicBody2D
 class_name Player
 
+#Compontents
+# onready var blue = $Blue
+# onready var blue_collision_shape = $BlueCollisionShape
+onready var red = $RedRight
+onready var red_collision_shape = $RedCollisionShape
+
+onready var animamtion_players = {
+	"red_right": $RedRight/AnimationPlayer,
+	#"red_left": $RedLeft/AnimationPlayer,
+	#"blue_right": $BlueRight/AnimationPlayer,
+	#"blue_left": $BlueLeft/AnimationPlayer,
+}
+var current_animation_player = "red_right"
+
 # Floor checking
 onready var left_floor_cast = $LeftFloorCast
 onready var center_floor_cast = $CenterFloorCast
@@ -70,8 +84,10 @@ func get_movement_input():
 	var dir = input.x
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+		animamtion_players[current_animation_player].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
+		animamtion_players[current_animation_player].play("RESET")
 
 func jumping():
 	if Input.is_action_just_pressed("Jump"):
@@ -140,17 +156,19 @@ func switch_to_blue():
 	print("Switched to blue")
 	current_character = characters.BLUE
 	jump_speed = blue_jump_speed
-	#$Blue.show()
-	$Red.hide()
-	$RedCollisionShape.disabled = true
+	#blue.show()
+	#current_animation_player = "blue_right"
+	red.hide()
+	red_collision_shape.disabled = true
 
 func switch_to_red():
 	print("Switched to red")
 	current_character = characters.RED
 	jump_speed = red_jump_speed
-	$Red.show()
-	$RedCollisionShape.disabled = false
-	#$Blue.hide()
+	current_animation_player = "red_right"
+	red.show()
+	red_collision_shape.disabled = false
+	#blue.hide()
 
 # State changes
 func switch_character():
