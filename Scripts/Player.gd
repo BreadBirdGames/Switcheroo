@@ -108,7 +108,9 @@ func box_check(delta):
 				if current_box.has_method("red_player_action"):
 					current_box.red_player_action()
 				else:
-					current_box.apply_central_impulse(Vector2(velocity.x,0) * PUSH_FORCE * delta)
+					if velocity.x < 0:
+						current_box.set_collision_mask_bit(1, false)
+						current_box.apply_central_impulse(Vector2(velocity.x,0) * PUSH_FORCE * delta)
 		else:
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)

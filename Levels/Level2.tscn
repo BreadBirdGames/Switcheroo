@@ -32,3 +32,6 @@ position = Vector2( 341, 86 )
 [node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
 position = Vector2( 542, 96 )
 scale = Vector2( 18.7139, 2.94052 )
+
+[node name="SlideBox2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 286, 78 )
