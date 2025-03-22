@@ -9,7 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Level2Bg" type="Sprite" parent="."]
-position = Vector2( 283, -14 )
+position = Vector2( 210, 38 )
 scale = Vector2( 0.527778, 0.527778 )
 texture = ExtResource( 5 )
 
@@ -26,12 +26,8 @@ position = Vector2( 1191, 65 )
 scale = Vector2( 3.68647, 6.11143 )
 
 [node name="SlideBox" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 341, 86 )
+position = Vector2( 296, 65 )
 
 [node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
-position = Vector2( 542, 96 )
-scale = Vector2( 18.7139, 2.94052 )
-
-[node name="SlideBox2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 286, 78 )
+position = Vector2( 542, 95 )
+scale = Vector2( 23.6489, 2.94052 )
