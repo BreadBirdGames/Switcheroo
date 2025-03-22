@@ -4,16 +4,9 @@ class_name Player
 #Compontents
 # onready var blue = $Blue
 # onready var blue_collision_shape = $BlueCollisionShape
-onready var red = $RedRight
+onready var red_right = $RedRight
+onready var red_left = $RedLeft
 onready var red_collision_shape = $RedCollisionShape
-
-onready var animamtion_players = {
-	"red_right": $RedRight/AnimationPlayer,
-	#"red_left": $RedLeft/AnimationPlayer,
-	#"blue_right": $BlueRight/AnimationPlayer,
-	#"blue_left": $BlueLeft/AnimationPlayer,
-}
-var current_animation_player = "red_right"
 
 # Floor checking
 onready var left_floor_cast = $LeftFloorCast
@@ -53,6 +46,53 @@ enum characters {
 
 var current_character = characters.RED
 
+# Animation
+onready var animation_players = {
+	"red_right": $RedRight/AnimationPlayer,
+	"red_left": $RedLeft/AnimationPlayer,
+	#"blue_right": $BlueRight/AnimationPlayer,
+	#"blue_left": $BlueLeft/AnimationPlayer,
+}
+enum directions {
+	LEFT,
+	RIGHT
+}
+var direction = directions.RIGHT setget set_direction
+
+func set_direction(val):
+	if val == directions.RIGHT:
+		if current_character == characters.RED:
+			red_left.hide()
+			red_right.show()
+		else:
+			animation_players["blue_left"].hide()
+			animation_players["blue_right"].show()
+	elif val == directions.LEFT:
+		if current_character == characters.RED:
+			red_right.hide()
+			red_left.show()
+		else:
+			animation_players["blue_right"].hide()
+			animation_players["blue_left"].show()
+
+	direction = val
+
+# get current animation player
+func current_anim_player():
+	var value = ""
+
+	if current_character == characters.RED:
+		value += "red_"
+	elif current_character == characters.BLUE:
+		value += "blue_"
+
+	if direction == directions.LEFT:
+		value += "left"
+	elif direction == directions.RIGHT:
+		value += "right"
+
+	return value
+
 # Floor check
 func is_floored():
 	if center_floor_cast.is_colliding():
@@ -84,10 +124,16 @@ func get_movement_input():
 	var dir = input.x
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
-		animamtion_players[current_animation_player].play("Run")
+
+		if velocity.x > 0:
+			set_direction(directions.RIGHT)
+		elif velocity.x < 0:
+			set_direction(directions.LEFT)
+
+		animation_players[current_anim_player()].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
-		animamtion_players[current_animation_player].play("RESET")
+		animation_players[current_anim_player()].play("RESET")
 
 func jumping():
 	if Input.is_action_just_pressed("Jump"):
@@ -134,7 +180,7 @@ func box_check(delta):
 
 				if collision_block.is_in_group("Boxes") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
 					if collision_block.player_touchable:
-						collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+						collision_block.apply_central_impulse(Vector2(collision.get_normal().x, 0) * -PUSH_FORCE)
 
 # Physics tick
 func _physics_process(delta):
@@ -157,16 +203,16 @@ func switch_to_blue():
 	current_character = characters.BLUE
 	jump_speed = blue_jump_speed
 	#blue.show()
-	#current_animation_player = "blue_right"
-	red.hide()
+	red_left.hide()
+	red_right.hide()
 	red_collision_shape.disabled = true
 
 func switch_to_red():
 	print("Switched to red")
 	current_character = characters.RED
 	jump_speed = red_jump_speed
-	current_animation_player = "red_right"
-	red.show()
+	red_left.show()
+	red_right.show()
 	red_collision_shape.disabled = false
 	#blue.hide()
 

@@ -443,7 +443,6 @@ internal_vertex_count = 7
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 48, 316 )
 rest = Transform2D( 1, 0, 0, 1, 48, 316 )
 default_length = 100.0
 
