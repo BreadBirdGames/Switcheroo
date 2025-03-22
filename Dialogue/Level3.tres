@@ -1,0 +1,73 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 3
+syntax_version = 2
+raw_text = "~If Blue tries to push
+Red: [color=#FF0000]are you sure you can push that thing?
+Blue: [color=#0000FF]of course i can, would you mind helping though?
+
+
+~if Red Tries to crawl
+Red: [color=#FF0000]its so small, how do i fit through here?
+Blue: [color=#0000FF]dont even try, you’ll get hurt, let me do it"
+errors = [  ]
+titles = {
+}
+lines = {
+"0": {
+"character": "",
+"next_id": "1",
+"replacements": [  ],
+"text": "~If Blue tries to push",
+"translation_key": "~If Blue tries to push",
+"type": "dialogue"
+},
+"1": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "2",
+"replacements": [  ],
+"text": "[color=#FF0000]are you sure you can push that thing?",
+"translation_key": "[color=#FF0000]are you sure you can push that thing?",
+"type": "dialogue"
+},
+"2": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "[color=#0000FF]of course i can, would you mind helping though?",
+"translation_key": "[color=#0000FF]of course i can, would you mind helping though?",
+"type": "dialogue"
+},
+"5": {
+"character": "",
+"next_id": "6",
+"replacements": [  ],
+"text": "~if Red Tries to crawl",
+"translation_key": "~if Red Tries to crawl",
+"type": "dialogue"
+},
+"6": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "7",
+"replacements": [  ],
+"text": "[color=#FF0000]its so small, how do i fit through here?",
+"translation_key": "[color=#FF0000]its so small, how do i fit through here?",
+"type": "dialogue"
+},
+"7": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "",
+"replacements": [  ],
+"text": "[color=#0000FF]dont even try, you’ll get hurt, let me do it",
+"translation_key": "[color=#0000FF]dont even try, you’ll get hurt, let me do it",
+"type": "dialogue"
+}
+}
