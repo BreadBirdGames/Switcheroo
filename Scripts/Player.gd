@@ -29,16 +29,12 @@ const PUSH_FORCE = 100
 const BLOCK_MAX_VELOCITY = 180
 
 var current_box = null
+var currently_picked_box = null
 
 # Character switching
 enum characters {
 	RED,
 	BLUE
-}
-
-var character_designs = {
-	"blue": preload("res://Players/BlueTest.tres"),
-	"red": preload("res://Players/RedTest.tres")
 }
 
 var current_character = characters.RED
@@ -78,7 +74,7 @@ func get_movement_input():
 		velocity.x = lerp(velocity.x, 0, friction)
 
 func jumping():
-	if Input.is_action_just_pressed("Activate") && current_character == characters.BLUE:
+	if Input.is_action_just_pressed("Jump"):
 		if is_floored():
 			velocity.y = jump_speed
 			jump_frames = 0
@@ -101,15 +97,21 @@ func deinit_crawl():
 
 func box_check():
 	if current_character == characters.RED:
-		for i in get_slide_count():
-			var collision = get_slide_collision(i)
-			var collision_block = collision.get_collider()
-
-			if collision_block.is_in_group("Blocks") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
-				if Input.is_action_pressed("Activate"):
-					collision_block.apply_central_impulse(collision.get_normal() * PUSH_FORCE)
+		if Input.is_action_pressed("Activate"):
+			if current_box != null:
+				if current_box.has_method("RedPlayerAction"):
+					current_box.RedPlayerAction()
 				else:
-					collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+					current_box.set_deferred("mode", current_box.MODE_STATIC)
+					current_box.position = $BoxPoint.position
+		else:
+			for i in get_slide_count():
+				var collision = get_slide_collision(i)
+				var collision_block = collision.get_collider()
+
+				if collision_block.is_in_group("Boxes") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+					if collision_block.player_touchable:
+						collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
 
 # Physics tick
 func _physics_process(delta):
@@ -133,12 +135,14 @@ func switch_to_blue():
 	jump_speed = blue_jump_speed
 	#$Blue.show()
 	$Red.hide()
+	$RedCollisionShape.disabled = true
 
 func switch_to_red():
 	print("Switched to red")
 	current_character = characters.RED
 	jump_speed = red_jump_speed
 	$Red.show()
+	$RedCollisionShape.disabled = false
 	#$Blue.hide()
 
 # State changes
@@ -156,3 +160,11 @@ func attempt_crawl():
 
 func attempt_un_crawl():
 	deinit_crawl()
+
+# Detect rubbing up against block
+func _on_BoxDetector_body_entered(body):
+	if body.is_in_group("Boxes"):
+		current_box = body
+
+func _on_BoxDetector_body_exited(_body):
+	current_box = null

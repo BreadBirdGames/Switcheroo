@@ -1,21 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Players/Red parts.png" type="Texture" id=1]
-[ext_resource path="res://Players/Red full pic.png" type="Texture" id=2]
-[ext_resource path="res://LD/Level1Bg.png" type="Texture" id=3]
 
 [node name="Red" type="Node2D"]
-
-[node name="Level1Bg" type="Sprite" parent="."]
-visible = false
-position = Vector2( -8275, -240 )
-scale = Vector2( 5.77159, 5.77159 )
-texture = ExtResource( 3 )
-
-[node name="RedFullPic" type="Sprite" parent="."]
-visible = false
-position = Vector2( -1473, 168 )
-texture = ExtResource( 2 )
 
 [node name="polygons" type="Node2D" parent="."]
 __meta__ = {
