@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled_Artwork parts.png-8d929bb9c9104c6f3d880139aa4c496d.stex"
+path="res://.import/Untitled_Artwork reference 2.png-68e1cbd410693ed307802d2d666776bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Untitled_Artwork parts.png"
-dest_files=[ "res://.import/Untitled_Artwork parts.png-8d929bb9c9104c6f3d880139aa4c496d.stex" ]
+source_file="res://Players/Untitled_Artwork reference 2.png"
+dest_files=[ "res://.import/Untitled_Artwork reference 2.png-68e1cbd410693ed307802d2d666776bb.stex" ]
 
 [params]
 
