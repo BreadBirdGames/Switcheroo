@@ -1,0 +1,50 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 1
+syntax_version = 2
+raw_text = "~ this_is_a_node_title
+
+Nathan: YOU FINISHED THE LEVEl, CONGRATS!!!
+
+~ this_is_a_node_title2
+
+Nathan: Hello [color=yellow]I am yellow[/color]"
+errors = [  ]
+titles = {
+"this_is_a_node_title": "2",
+"this_is_a_node_title2": "6"
+}
+lines = {
+"0": {
+"next_id": "2",
+"text": "this_is_a_node_title",
+"type": "title"
+},
+"2": {
+"character": "Nathan",
+"character_replacements": [  ],
+"next_id": "",
+"replacements": [  ],
+"text": "YOU FINISHED THE LEVEl, CONGRATS!!!",
+"translation_key": "YOU FINISHED THE LEVEl, CONGRATS!!!",
+"type": "dialogue"
+},
+"4": {
+"next_id": "6",
+"text": "this_is_a_node_title2",
+"type": "title"
+},
+"6": {
+"character": "Nathan",
+"character_replacements": [  ],
+"next_id": "",
+"replacements": [  ],
+"text": "Hello [color=yellow]I am yellow[/color]",
+"translation_key": "Hello [color=yellow]I am yellow[/color]",
+"type": "dialogue"
+}
+}

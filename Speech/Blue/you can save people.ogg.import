@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/you can save people.ogg-b47ab0332bd7a9c0601372fe46c2d109.oggstr"
+
+[deps]
+
+source_file="res://Speech/Blue/you can save people.ogg"
+dest_files=[ "res://.import/you can save people.ogg-b47ab0332bd7a9c0601372fe46c2d109.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
