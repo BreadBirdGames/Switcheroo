@@ -1,8 +1,16 @@
 extends KinematicBody2D
 class_name Player
 
+# Floor checking
+onready var left_floor_cast = $LeftFloorCast
+onready var center_floor_cast = $CenterFloorCast
+onready var right_floor_cast = $RightFloorCast
+
+# Movement related
 export (int) var speed = 1200
-export (int) var jump_speed = -1800
+export (int) var red_jump_speed = -1000
+export (int) var blue_jump_speed = -1800
+var jump_speed = red_jump_speed
 export (int) var gravity = 4000
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.25
@@ -10,25 +18,43 @@ export (int) var max_jump_frames = 10
 var coyote_jumping = false
 var jump_frames = 0
 
-onready var left_floor_cast = $LeftFloorCast
-onready var center_floor_cast = $CenterFloorCast
-onready var right_floor_cast = $RightFloorCast
+var velocity = Vector2.ZERO
 
+# Crawling
+var original_scale = Vector2.ONE
+var crawling = false
+
+# Box moving
 const PUSH_FORCE = 100
 const BLOCK_MAX_VELOCITY = 180
 
-var velocity = Vector2.ZERO
+var current_box = null
 
-func get_input():
-	var input = Input.get_vector("Move_Left", "Move_Right", "Move_Left", "Move_Right")
-	var dir = input.x
-	if dir != 0:
-		velocity.x = lerp(velocity.x, dir * speed, acceleration)
-	else:
-		velocity.x = lerp(velocity.x, 0, friction)
+# Character switching
+enum characters {
+	RED,
+	BLUE
+}
 
+var character_designs = {
+	"blue": preload("res://Players/BlueTest.tres"),
+	"red": preload("res://Players/RedTest.tres")
+}
 
-func _physics_process(delta):
+var current_character = characters.RED
+
+# Floor check
+func is_floored():
+	if center_floor_cast.is_colliding():
+		return true
+	if left_floor_cast.is_colliding():
+		return true
+	if right_floor_cast.is_colliding():
+		return true
+	return false
+
+# Movement
+func movement(delta):
 	if coyote_jumping:
 		if not is_floored():
 			jump_frames += 1
@@ -38,21 +64,21 @@ func _physics_process(delta):
 				coyote_jumping = false
 				jump_frames = 0
 
-	get_input()
+	get_movement_input()
 
 	if not is_floored():
 		velocity.y += gravity * delta
 
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		var collision_block = collision.get_collider()
+func get_movement_input():
+	var input = Input.get_vector("Move_Left", "Move_Right", "Move_Left", "Move_Right")
+	var dir = input.x
+	if dir != 0:
+		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+	else:
+		velocity.x = lerp(velocity.x, 0, friction)
 
-		if collision_block.is_in_group("Blocks") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
-			collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
-
-	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
-
-	if Input.is_action_just_pressed("Jump"):
+func jumping():
+	if Input.is_action_just_pressed("Activate") && current_character == characters.BLUE:
 		if is_floored():
 			velocity.y = jump_speed
 			jump_frames = 0
@@ -60,11 +86,73 @@ func _physics_process(delta):
 			coyote_jumping = true
 			jump_frames = 0
 
-func is_floored():
-	if center_floor_cast.is_colliding():
-		return true
-	if left_floor_cast.is_colliding():
-		return true
-	if right_floor_cast.is_colliding():
-		return true
-	return false
+# Crawling
+func init_crawl():
+	original_scale = scale
+	scale = Vector2(1, 0.25)
+	crawling = true
+
+func deinit_crawl():
+	scale = original_scale
+	original_scale = Vector2.ONE
+	crawling = false
+
+# Box moving
+
+func box_check():
+	if current_character == characters.RED:
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			var collision_block = collision.get_collider()
+
+			if collision_block.is_in_group("Blocks") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+				if Input.is_action_pressed("Activate"):
+					collision_block.apply_central_impulse(collision.get_normal() * PUSH_FORCE)
+				else:
+					collision_block.apply_central_impulse(collision.get_normal() * -PUSH_FORCE)
+
+# Physics tick
+func _physics_process(delta):
+	movement(delta)
+
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+
+	box_check()
+
+	jumping()
+
+# Input not consumed by other node
+func _unhandled_input(event):
+	if event.is_action_pressed("Switch_Character"):
+		switch_character()
+
+# Character switching
+func switch_to_blue():
+	print("Switched to blue")
+	current_character = characters.BLUE
+	jump_speed = blue_jump_speed
+	#$Blue.show()
+	$Red.hide()
+
+func switch_to_red():
+	print("Switched to red")
+	current_character = characters.RED
+	jump_speed = red_jump_speed
+	$Red.show()
+	#$Blue.hide()
+
+# State changes
+func switch_character():
+	if current_character == characters.RED:
+		switch_to_blue()
+	elif current_character == characters.BLUE:
+		switch_to_red()
+	else:
+		print("Invalid current character")
+
+func attempt_crawl():
+	if current_character == characters.BLUE:
+		init_crawl()
+
+func attempt_un_crawl():
+	deinit_crawl()

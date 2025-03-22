@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Red full pic.png-8be2c4b445523286d928dbb8b4825e8b.stex"
+path="res://.import/Red parts.png-f8a79ccbcf25899486661b04885dc36e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Red full pic.png"
-dest_files=[ "res://.import/Red full pic.png-8be2c4b445523286d928dbb8b4825e8b.stex" ]
+source_file="res://Players/Red parts.png"
+dest_files=[ "res://.import/Red parts.png-f8a79ccbcf25899486661b04885dc36e.stex" ]
 
 [params]
 

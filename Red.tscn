@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Red parts.png" type="Texture" id=1]
-[ext_resource path="res://Red full pic.png" type="Texture" id=2]
+[ext_resource path="res://Players/Red parts.png" type="Texture" id=1]
+[ext_resource path="res://Players/Red full pic.png" type="Texture" id=2]
 [ext_resource path="res://LD/Level1Bg.png" type="Texture" id=3]
 
 [node name="Red" type="Node2D"]
@@ -115,7 +115,6 @@ rest = Transform2D( 1, 0, 0, 1, 53, 290 )
 [node name="HandL" type="Bone2D" parent="Skeleton2D/hip/torso/ArmL/forearmL"]
 position = Vector2( 23, 215 )
 rotation = 1.41233
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.1578, 0.987471, -0.987471, 0.1578, 23, 215 )
 default_length = 90.0
 
@@ -131,7 +130,6 @@ rest = Transform2D( 1, 0, 0, 1, -30, 301 )
 [node name="HandR" type="Bone2D" parent="Skeleton2D/hip/torso/ArmR/forearmR"]
 position = Vector2( -3, 224 )
 rotation = 1.41233
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.1578, 0.987471, -0.987471, 0.1578, -3, 224 )
 default_length = 90.0
 
@@ -152,7 +150,6 @@ rest = Transform2D( 1, 0, 0, 1, 44, 328 )
 [node name="footR" type="Bone2D" parent="Skeleton2D/hip/thighR/LegR"]
 position = Vector2( -48, 382 )
 rotation = 0.220342
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.975823, 0.218563, -0.218563, 0.975823, -48, 382 )
 default_length = 120.0
 
@@ -167,6 +164,5 @@ rest = Transform2D( 1, 0, 0, 1, -15, 322 )
 [node name="footL" type="Bone2D" parent="Skeleton2D/hip/thighL/LegL"]
 position = Vector2( -26, 340 )
 rotation = 0.201966
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.979674, 0.200596, -0.200596, 0.979674, -26, 340 )
 default_length = 120.0

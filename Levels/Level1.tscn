@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Nodes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LD/Level1Bg.png" type="Texture" id=2]
 [ext_resource path="res://Nodes/SlideBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/CrawlSpace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/Teleporter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/BoxSlot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Nodes/LevelLoader.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 
@@ -15,16 +20,44 @@ texture = ExtResource( 2 )
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -500, -682, 2483, -702, 2428, -141, 2188, -139, 2185, -374, 2011, -349, 1992, -396, 1412, -413, 1396, -317, 1282, -313, 1275, -258, 1214, -233, 1042, -251, 1021, -290, 823, -294, 799, -422, 36, -400, -362, -382, -360, 136, -48, 136, -48, 56, 184, 56, 184, 128, 664, 128, 664, -48, 1032, -48, 1040, -136, 1256, -136, 1256, -48, 2104, -48, 2104, 24, 2192, 24, 2192, -64, 2424, -64, 2419, 263, -653, 282 )
+polygon = PoolVector2Array( -500, -682, 2483, -702, 2416, -111, 2189, -111, 2174, -360, 2011, -349, 1992, -396, 1412, -413, 1396, -317, 1294, -309, 1221, -240, 1172, -167, 1122, -170, 1071, -241, 1003, -287, 823, -294, 799, -422, 36, -400, -362, -382, -360, 120, -48, 120, -46, 70, 180, 70, 184, 128, 664, 128, 664, -48, 1032, -48, 1040, -136, 1256, -136, 1256, -48, 2079, -48, 2099, 40, 2198, 40, 2200, -48, 2416, -48, 2419, 263, -653, 282 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -317, 83 )
+position = Vector2( -284, 35 )
 speed = 500
-jump_speed = -1000
 friction = 0.5
 
 [node name="SlideBox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 438, 79 )
 
 [node name="SlideBox2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2148, -21 )
+position = Vector2( 1728, -104 )
+
+[node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 1148, -178 )
+scale = Vector2( 10.6937, 4.41325 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2146, 29 )
+scale = Vector2( 4.02776, 0.805241 )
+connected_portal = NodePath("../Teleporter2")
+spit_out_offset = Vector2( 0, 50 )
+
+[node name="Teleporter2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1473, -384 )
+scale = Vector2( 4.02776, 0.805241 )
+connected_portal = NodePath("../Teleporter")
+
+[node name="BoxSlot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2140, -3 )
+scale = Vector2( 6.25, 4.5 )
+
+[node name="CrawlSpace2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2302, -79 )
+scale = Vector2( 13.5239, 3.18408 )
+
+[node name="LevelLoader" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2403, -80 )
+scale = Vector2( 2.35122, 3.19851 )
+load_scene = ExtResource( 9 )
