@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Players/RedRight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Players/RedLeft.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 70 )
@@ -16,7 +17,12 @@ friction = 0.5
 max_jump_frames = 3
 
 [node name="RedRight" parent="." instance=ExtResource( 2 )]
-position = Vector2( -2.27374e-13, -23 )
+position = Vector2( 0, 5 )
+scale = Vector2( 0.085, 0.085 )
+
+[node name="RedLeft" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 0, 5 )
 scale = Vector2( 0.085, 0.085 )
 
 [node name="RedCollisionShape" type="CollisionShape2D" parent="."]

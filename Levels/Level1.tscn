@@ -37,10 +37,10 @@ polygon = PoolVector2Array( -967, -771, 2483, -702, 2416, -111, 2189, -111, 2174
 position = Vector2( -540, -79 )
 
 [node name="SlideBox" parent="." instance=ExtResource( 3 )]
-position = Vector2( 354, 82 )
+position = Vector2( 354, 63 )
 
 [node name="SlideBox2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1696, -104 )
+position = Vector2( 1696, -114 )
 collision_mask = 7
 
 [node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
