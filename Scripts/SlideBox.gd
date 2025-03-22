@@ -19,6 +19,9 @@ func move_to(new_position):
 	set_deferred("mode", MODE_STATIC)
 	$CollisionShape2D.queue_free()
 
+func _integrate_forces(_state):
+	rotation_degrees = 0
+
 func _physics_process(delta):
 	t += delta
 

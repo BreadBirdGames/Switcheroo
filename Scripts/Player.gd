@@ -93,17 +93,24 @@ func deinit_crawl():
 	original_scale = Vector2.ONE
 	crawling = false
 
-# Box moving
+# Reparenting
+func reparent(node, new_parent):
+	node.position = new_parent.to_local(node.global_position)
+	node.rotation = node.global_rotation - new_parent.global_rotation
+	get_parent().remove_child(node)
+	new_parent.call_deferred("add_child", node)
 
-func box_check():
+# Box moving
+func box_check(delta):
 	if current_character == characters.RED:
 		if Input.is_action_pressed("Activate"):
 			if current_box != null:
-				if current_box.has_method("RedPlayerAction"):
-					current_box.RedPlayerAction()
+				if current_box.has_method("red_player_action"):
+					current_box.red_player_action()
 				else:
-					current_box.set_deferred("mode", current_box.MODE_STATIC)
-					current_box.position = $BoxPoint.position
+					if velocity.x < 0:
+						current_box.set_collision_mask_bit(1, false)
+						current_box.apply_central_impulse(Vector2(velocity.x,0) * PUSH_FORCE * delta)
 		else:
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)
@@ -119,7 +126,7 @@ func _physics_process(delta):
 
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 
-	box_check()
+	box_check(delta)
 
 	jumping()
 
