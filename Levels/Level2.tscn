@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Players/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/SlideBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Nodes/CrawlSpace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LD/Level2Bg.png" type="Texture" id=5]
+[ext_resource path="res://Nodes/LevelLoader.tscn" type="PackedScene" id=8]
+
+[node name="Main" type="Node2D"]
+
+[node name="Level2Bg" type="Sprite" parent="."]
+position = Vector2( 283, -14 )
+scale = Vector2( 0.527778, 0.527778 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -1022, -577, 1373, -577, 1350, -27, 1068, -20, 1064, -93, 920, -90, 921, -18, 709, -20, 707, 57, 364, 56, 363, -155, -661, -149, -664, 53, -782, 61, -782, 135, 1345, 135, 1314, 453, -1015, 407 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -284, 35 )
+
+[node name="LevelLoader" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1191, 65 )
+scale = Vector2( 3.68647, 6.11143 )
+
+[node name="SlideBox" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 341, 86 )
+
+[node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
+position = Vector2( 542, 96 )
+scale = Vector2( 18.7139, 2.94052 )
