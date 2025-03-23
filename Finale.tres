@@ -46,8 +46,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "3",
 "replacements": [  ],
-"text": "[color=#0000FF]why is there two buttons, the old man only said there was one",
-"translation_key": "[color=#0000FF]why is there two buttons, the old man only said there was one",
+"text": "[do comic_play_sound(\"why is there two buttons\")][color=#0000FF]why is there two buttons, the old man only said there was one",
+"translation_key": "[do comic_play_sound(\"why is there two buttons\")][color=#0000FF]why is there two buttons, the old man only said there was one",
 "type": "dialogue"
 },
 "3": {
@@ -82,8 +82,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "7",
 "replacements": [  ],
-"text": "[color=#0000FF]it seems like it, I cant let it be you...",
-"translation_key": "[color=#0000FF]it seems like it, I cant let it be you...",
+"text": "[do comic_play_sound(\"it seems like it\")][color=#0000FF]it seems like it, I cant let it be you...",
+"translation_key": "[do comic_play_sound(\"it seems like it\")][color=#0000FF]it seems like it, I cant let it be you...",
 "type": "dialogue"
 },
 "7": {
@@ -100,8 +100,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "9",
 "replacements": [  ],
-"text": "[color=#0000FF]you can save people, you need to keep going, the world needs people like you",
-"translation_key": "[color=#0000FF]you can save people, you need to keep going, the world needs people like you",
+"text": "[do comic_play_sound(\"you can save people\")][color=#0000FF]you can save people, you need to keep going, the world needs people like you",
+"translation_key": "[do comic_play_sound(\"you can save people\")][color=#0000FF]you can save people, you need to keep going, the world needs people like you",
 "type": "dialogue"
 },
 "9": {
