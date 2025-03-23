@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Players/Untitled_Artwork reference 2.png" type="Texture" id=1]
 [ext_resource path="res://Players/Untitled_Artwork parts.png" type="Texture" id=2]
@@ -189,12 +189,8 @@ tracks/14/keys = {
 "values": [ -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791, -40.4791 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "CrawlDown"
-loop = true
-
 [sub_resource type="Animation" id=6]
-resource_name = "CrawlDown 2"
+resource_name = "CrawlDown"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Hip:rotation_degrees")
@@ -1004,8 +1000,7 @@ tracks/14/keys = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 3 )
-anims/CrawlDown = SubResource( 5 )
-"anims/CrawlDown 2" = SubResource( 6 )
+anims/CrawlDown = SubResource( 6 )
 anims/CrawlUp = SubResource( 4 )
 anims/RESET = SubResource( 1 )
 anims/Run = SubResource( 2 )
