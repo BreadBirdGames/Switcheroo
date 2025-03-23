@@ -11,5 +11,5 @@ dest_files=[ "res://.import/TikTak.ogg-956e56c66b16900e6d7d3a9fd8e402e1.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

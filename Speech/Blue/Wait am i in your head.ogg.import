@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Wait am i in your head.ogg-abe1bba474b49ea293e7192c4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

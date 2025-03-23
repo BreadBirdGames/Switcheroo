@@ -11,5 +11,5 @@ dest_files=[ "res://.import/FodtrinSound.ogg-07449ef0d033c08c8fdaeccfbebd12a0.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

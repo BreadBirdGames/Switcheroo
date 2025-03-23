@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BoxScraping.ogg-cd7501c3e39e73dda0be8a789cff049e.ogg
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

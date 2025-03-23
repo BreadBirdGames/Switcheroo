@@ -11,5 +11,5 @@ dest_files=[ "res://.import/why is there two buttons.ogg-289fd17bd8ba4db236e52c7
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

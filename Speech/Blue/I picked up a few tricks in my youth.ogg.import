@@ -11,5 +11,5 @@ dest_files=[ "res://.import/I picked up a few tricks in my youth.ogg-15b1e5c28a5
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

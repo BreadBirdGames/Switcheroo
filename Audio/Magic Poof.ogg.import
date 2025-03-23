@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Magic Poof.ogg-5a53ad6cb19f324675f4699de9b9ac2e.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

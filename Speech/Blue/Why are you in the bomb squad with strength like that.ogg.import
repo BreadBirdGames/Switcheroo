@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Why are you in the bomb squad with strength like tha
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
