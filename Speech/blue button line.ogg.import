@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blue button line.ogg-28094dfaff287e2b40ea3d80259a2c58.oggstr"
+
+[deps]
+
+source_file="res://Speech/blue button line.ogg"
+dest_files=[ "res://.import/blue button line.ogg-28094dfaff287e2b40ea3d80259a2c58.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

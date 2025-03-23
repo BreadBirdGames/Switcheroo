@@ -4,18 +4,18 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 5
+resource_version = 8
 syntax_version = 2
 raw_text = "~ending dilemma
-Red: [color=#FF0000]finally, we made it
+Red: [do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it
 Blue: [color=#0000FF]why is there two buttons, the old man only said there was one
-Red: [color=#FF0000]hey, what does the note say?” -Red
+Red: [do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?” 
 Note: I forgot to tell you, due to your situation being weird, only one of you can have a permanent body. PS. please take out the trash when you leave
-Red: [color=#FF0000]so we’re just supposed to choose?
+Red: [do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?
 Blue: [color=#0000FF]it seems like it, I cant let it be you...
-Red: [color=#FF0000]Its not gonna be you either. I dont like our adventure anymore
+Red: [do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore
 Blue: [color=#0000FF]you can save people, you need to keep going, the world needs people like you
-Red: [color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect
+Red: [do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect
 #Player makes a choice
 #fade to black
 #roll creditsz
@@ -37,8 +37,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "2",
 "replacements": [  ],
-"text": "[color=#FF0000]finally, we made it",
-"translation_key": "[color=#FF0000]finally, we made it",
+"text": "[do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it",
+"translation_key": "[do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it",
 "type": "dialogue"
 },
 "2": {
@@ -55,8 +55,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "4",
 "replacements": [  ],
-"text": "[color=#FF0000]hey, what does the note say?” -Red",
-"translation_key": "[color=#FF0000]hey, what does the note say?” -Red",
+"text": "[do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?”",
+"translation_key": "[do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?”",
 "type": "dialogue"
 },
 "4": {
@@ -73,8 +73,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "6",
 "replacements": [  ],
-"text": "[color=#FF0000]so we’re just supposed to choose?",
-"translation_key": "[color=#FF0000]so we’re just supposed to choose?",
+"text": "[do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?",
+"translation_key": "[do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?",
 "type": "dialogue"
 },
 "6": {
@@ -91,8 +91,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "8",
 "replacements": [  ],
-"text": "[color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
-"translation_key": "[color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
+"text": "[do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
+"translation_key": "[do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
 "type": "dialogue"
 },
 "8": {
@@ -109,8 +109,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "",
 "replacements": [  ],
-"text": "[color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
-"translation_key": "[color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
+"text": "[do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
+"translation_key": "[do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
 "type": "dialogue"
 }
 }

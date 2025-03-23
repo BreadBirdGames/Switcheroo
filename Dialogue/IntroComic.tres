@@ -4,20 +4,20 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 57
+resource_version = 60
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
-Red: [do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!
+Red: [do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!
 Blue: [do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()][color=#0000FF]We can't be sure of that.
 [do comic_play_sound(\"TickTick\")][do comic_move_page()]Tick tick tick...
 [do comic_play_sound(\"Boom\")][do comic_move_page()]BOOM
 [do comic_move_page()]...
-Red: [do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?
+Red: [do comic_play_sound(\"FirstRed_-02\")][do comic_move_page()][color=#FF0000]whoa what happened?
 Blue: [do comic_play_sound(\"Blue_InYourHead\")][color=#0000FF]Wait am i in your head?
-Red: [do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro
+Red: [do comic_play_sound(\"Red_03\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro
 Blue: [do comic_play_sound(\"Blue_ThinkWeAre\")][do comic_move_page()][color=#0000FF]I think we are?
-Red: [do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL
+Red: [do comic_play_sound(\"Red_04\")][color=#FF0000]That's SO COOL
 Blue: [do comic_play_sound(\"Blue_HowGetOut\")][color=#0000FF]sure… but how do we get me out?
 [do comic_play_sound(\"MagicPoof\")][do comic_move_page()]Old man pops up 
 Old Man: [do comic_play_sound(\"Old_Hello\")]Hello there, I bet you are wondering whats going on
@@ -55,8 +55,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "12",
 "replacements": [  ],
-"text": "[do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL",
-"translation_key": "[do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL",
+"text": "[do comic_play_sound(\"Red_04\")][color=#FF0000]That's SO COOL",
+"translation_key": "[do comic_play_sound(\"Red_04\")][color=#FF0000]That's SO COOL",
 "type": "dialogue"
 },
 "12": {
@@ -135,8 +135,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "3",
 "replacements": [  ],
-"text": "[do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!",
-"translation_key": "[do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!",
+"text": "[do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!",
+"translation_key": "[do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!",
 "type": "dialogue"
 },
 "20": {
@@ -221,8 +221,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "8",
 "replacements": [  ],
-"text": "[do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?",
-"translation_key": "[do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?",
+"text": "[do comic_play_sound(\"FirstRed_-02\")][do comic_move_page()][color=#FF0000]whoa what happened?",
+"translation_key": "[do comic_play_sound(\"FirstRed_-02\")][do comic_move_page()][color=#FF0000]whoa what happened?",
 "type": "dialogue"
 },
 "8": {
@@ -239,8 +239,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "10",
 "replacements": [  ],
-"text": "[do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
-"translation_key": "[do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
+"text": "[do comic_play_sound(\"Red_03\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
+"translation_key": "[do comic_play_sound(\"Red_03\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
 "type": "dialogue"
 }
 }
