@@ -1,225 +1,42 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Comic/Page1.png" type="Texture" id=1]
 [ext_resource path="res://Comic/Page5.png" type="Texture" id=2]
 [ext_resource path="res://Comic/Page2.png" type="Texture" id=3]
 [ext_resource path="res://Comic/Page3.png" type="Texture" id=4]
-[ext_resource path="res://Comic/Page4.png" type="Texture" id=5]
+[ext_resource path="res://Comic/Page8.png" type="Texture" id=5]
 [ext_resource path="res://Comic/Page6.png" type="Texture" id=6]
 [ext_resource path="res://Comic/Comic.gd" type="Script" id=7]
-
-[sub_resource type="Animation" id=2]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.35, 0.35 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 185, 0 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "Tile1"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 185, 0 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.35, 0.35 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Tile2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -950, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "Tile3"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -950, 0 ), Vector2( 0, -550 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Tile4"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -550 ), Vector2( -960, -550 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "Tile5"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -960, -550 ), Vector2( 0, -1085 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "Tile6"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Page:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -1085 ), Vector2( -960, -1085 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Page:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
+[ext_resource path="res://Comic/Page10.png" type="Texture" id=8]
+[ext_resource path="res://Comic/Page12.png" type="Texture" id=9]
+[ext_resource path="res://Comic/Page9.png" type="Texture" id=10]
+[ext_resource path="res://Comic/Page11.png" type="Texture" id=11]
+[ext_resource path="res://Comic/Page14.png" type="Texture" id=12]
+[ext_resource path="res://Comic/Page13.png" type="Texture" id=13]
+[ext_resource path="res://Comic/Page4.png" type="Texture" id=14]
+[ext_resource path="res://Comic/Page7.png" type="Texture" id=15]
 
 [node name="Comic" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/Tile1 = SubResource( 3 )
-anims/Tile2 = SubResource( 4 )
-anims/Tile3 = SubResource( 5 )
-anims/Tile4 = SubResource( 6 )
-anims/Tile5 = SubResource( 7 )
-anims/Tile6 = SubResource( 8 )
-blend_times = [ "RESET", "RESET", 5.0, "RESET", "Tile1", 5.0, "RESET", "Tile2", 5.0, "RESET", "Tile3", 5.0, "RESET", "Tile4", 5.0, "RESET", "Tile5", 5.0, "RESET", "Tile6", 5.0 ]
+[node name="CameraTween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 345, 200 )
+current = true
+zoom = Vector2( 0.7, 0.7 )
+
+[node name="PageTimer1" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="PageTimer2" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [node name="Page" type="Node2D" parent="."]
-position = Vector2( 185, 0 )
 scale = Vector2( 0.35, 0.35 )
 
 [node name="Page1" type="Sprite" parent="Page"]
@@ -240,7 +57,7 @@ texture = ExtResource( 4 )
 [node name="Page4" type="Sprite" parent="Page"]
 position = Vector2( 1458, 836 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 14 )
 
 [node name="Page5" type="Sprite" parent="Page"]
 position = Vector2( 512, 1377 )
@@ -251,3 +68,46 @@ texture = ExtResource( 2 )
 position = Vector2( 1460, 1376 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
+
+[node name="Page7" type="Sprite" parent="Page"]
+position = Vector2( 512, 1918 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="Page8" type="Sprite" parent="Page"]
+position = Vector2( 1460, 1918 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Page9" type="Sprite" parent="Page"]
+position = Vector2( 512, 2458.72 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Page10" type="Sprite" parent="Page"]
+position = Vector2( 1460, 2458 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="Page11" type="Sprite" parent="Page"]
+position = Vector2( 512, 2996 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="Page12" type="Sprite" parent="Page"]
+position = Vector2( 1460, 2997 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Page13" type="Sprite" parent="Page"]
+position = Vector2( 512, 3534 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+
+[node name="Page14" type="Sprite" parent="Page"]
+position = Vector2( 1460, 3534 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
+[connection signal="timeout" from="PageTimer1" to="." method="_on_PageTimer1_timeout"]
+[connection signal="timeout" from="PageTimer2" to="." method="_on_PageTimer2_timeout"]
