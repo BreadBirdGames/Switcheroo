@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/PushUpBlock.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Nodes/SlideBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/CrawlSpace.tscn" type="PackedScene" id=4]
 [ext_resource path="res://LD/Level2Bg.png" type="Texture" id=5]
 [ext_resource path="res://Nodes/LevelLoader.tscn" type="PackedScene" id=8]
@@ -31,9 +30,6 @@ position = Vector2( -284, 35 )
 position = Vector2( 1158, 110 )
 scale = Vector2( 3.68647, 6.11143 )
 
-[node name="SlideBox" parent="." instance=ExtResource( 3 )]
-position = Vector2( 225, 119 )
-
 [node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
 position = Vector2( 466, 148 )
 scale = Vector2( 23.6489, 2.94052 )
@@ -47,3 +43,9 @@ enabled = false
 position = Vector2( 920, 110 )
 end_position = Vector2( 0, -50 )
 crawl_space = NodePath("../CrawlSpace2")
+
+[node name="PushUpBlox2" parent="." groups=["Boxes"] instance=ExtResource( 2 )]
+position = Vector2( 225, 113 )
+end_position = Vector2( -100, 0 )
+crawl_space = NodePath("../CrawlSpace2")
+speed_mult = 2.0
