@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 6
+resource_version = 12
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
-Red: [color=#FF0000]It's the blue button! it has to be![/color]
-Blue: [color=#0000FF]We can't be sure of that.[/color]
+Red: [color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]
+Blue: [color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]
 BOOM
 Red: [color=#FF0000]whoa what happened?[/color]
 Blue: [color=#0000FF]Wait am i in your head?[/color]
@@ -25,7 +25,7 @@ Red: [color=#FF0000]And!!?[/color]
 Old Man: I happen to know how to get to the button 
 Red: [color=#FF0000]YES!?[/color]
 Old Man: Well, listen closely, its in that tower, over there
-Blue: [color=#0000FF]Really? Not a castle and a dragon?[/color]
+Blue: [color=#0000FF]Really? Not a castle and a dragon?[/color]z
 Old Man: Nope its right over there
 Blue: [color=#0000FF]No time to waste[/color]
 "
@@ -124,8 +124,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "20",
 "replacements": [  ],
-"text": "[color=#0000FF]Really? Not a castle and a dragon?[/color]",
-"translation_key": "[color=#0000FF]Really? Not a castle and a dragon?[/color]",
+"text": "[color=#0000FF]Really? Not a castle and a dragon?[/color]z",
+"translation_key": "[color=#0000FF]Really? Not a castle and a dragon?[/color]z",
 "type": "dialogue"
 },
 "2": {
@@ -133,8 +133,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "3",
 "replacements": [  ],
-"text": "[color=#FF0000]It's the blue button! it has to be![/color]",
-"translation_key": "[color=#FF0000]It's the blue button! it has to be![/color]",
+"text": "[color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]",
+"translation_key": "[color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]",
 "type": "dialogue"
 },
 "20": {
@@ -160,8 +160,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "4",
 "replacements": [  ],
-"text": "[color=#0000FF]We can't be sure of that.[/color]",
-"translation_key": "[color=#0000FF]We can't be sure of that.[/color]",
+"text": "[color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]",
+"translation_key": "[color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]",
 "type": "dialogue"
 },
 "4": {

@@ -185,9 +185,10 @@ func box_check(delta):
 				var collision = get_slide_collision(i)
 				var collision_block = collision.get_collider()
 
-				if collision_block.is_in_group("Boxes") and abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+				if collision_block.is_in_group("Boxes"):
 					if collision_block.player_touchable:
-						collision_block.apply_central_impulse(Vector2(collision.get_normal().x, 0) * -PUSH_FORCE)
+						if abs(collision_block.get_linear_velocity().x) < BLOCK_MAX_VELOCITY:
+							collision_block.apply_central_impulse(Vector2(collision.get_normal().x, 0) * -PUSH_FORCE)
 
 # Physics tick
 func _physics_process(delta):
