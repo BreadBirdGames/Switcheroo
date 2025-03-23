@@ -4,11 +4,11 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 59
+resource_version = 60
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
-Red: [do comic_play_sound(\"FirstRed_-01-02\")][color=#FF0000]It's the blue button! it has to be!
+Red: [do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!
 Blue: [do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()][color=#0000FF]We can't be sure of that.
 [do comic_play_sound(\"TickTick\")][do comic_move_page()]Tick tick tick...
 [do comic_play_sound(\"Boom\")][do comic_move_page()]BOOM
@@ -135,8 +135,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "3",
 "replacements": [  ],
-"text": "[do comic_play_sound(\"FirstRed_-01-02\")][color=#FF0000]It's the blue button! it has to be!",
-"translation_key": "[do comic_play_sound(\"FirstRed_-01-02\")][color=#FF0000]It's the blue button! it has to be!",
+"text": "[do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!",
+"translation_key": "[do comic_play_sound(\"blue button line\")][color=#FF0000]It's the blue button! it has to be!",
 "type": "dialogue"
 },
 "20": {
