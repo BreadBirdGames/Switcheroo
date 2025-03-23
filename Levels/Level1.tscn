@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Players/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LD/Level1Bg.png" type="Texture" id=2]
 [ext_resource path="res://Nodes/SlideBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Nodes/CrawlSpace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Nodes/CamDetector.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LD/Pipe01.png" type="Texture" id=6]
 [ext_resource path="res://Nodes/BoxSlot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Nodes/LevelLoader.tscn" type="PackedScene" id=8]
@@ -28,12 +29,13 @@ position = Vector2( 199.228, 130.837 )
 texture = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -967, -771, 2483, -702, 2416, -111, 2189, -111, 2174, -360, 2011, -349, 1992, -396, 1412, -413, 1396, -317, 1321, -309, 1277, -123, 1045, -115, 958, -286, 823, -294, 799, -422, 36, -400, -627, -375, -622, 13, -506, 14, -504, 35, -434, 36, -433, 63, -387, 56, -384, 131, -48, 120, -46, 70, 180, 70, 184, 128, 664, 128, 664, -48, 2027, -48, 2065, 84, 2180, 83, 2186, -48, 2416, -48, 2419, 263, -998, 345 )
+polygon = PoolVector2Array( -967, -771, 2483, -702, 2419, -111, 2179, -111, 2174, -360, 2011, -349, 1992, -396, 1412, -413, 1396, -317, 1321, -309, 1277, -123, 1045, -115, 958, -286, 823, -294, 799, -422, 36, -400, -627, -375, -622, 13, -506, 14, -504, 35, -434, 36, -433, 63, -387, 56, -384, 131, -48, 120, -46, 70, 180, 70, 184, 128, 664, 128, 664, -48, 2027, -48, 2065, 84, 2180, 83, 2186, -48, 2416, -48, 2419, 263, -998, 345 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -512, -96 )
+position = Vector2( -549, -79 )
 
 [node name="SlideBox" parent="." instance=ExtResource( 3 )]
 position = Vector2( 354, 63 )
@@ -55,11 +57,38 @@ load_scene = ExtResource( 9 )
 position = Vector2( 2103, 17 )
 scale = Vector2( 7.825, 6.5 )
 acceptable_boxes = [ NodePath("../SlideBox2") ]
+relay = NodePath("../CrawlSpace2")
 
 [node name="CrawlSpace2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2276, -82 )
-scale = Vector2( 13.5239, 3.18408 )
+position = Vector2( 2284, -82 )
+scale = Vector2( 11.3586, 2.08995 )
+enabled = false
 
 [node name="LevelLoader" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2107, 72 )
-scale = Vector2( 4.52554, 0.724143 )
+position = Vector2( 2097, 85 )
+scale = Vector2( 7.27867, 0.724143 )
+
+[node name="StartCam" parent="." instance=ExtResource( 5 )]
+position = Vector2( 49, -192 )
+scale = Vector2( 69, 34 )
+camera_path = NodePath("../Camera")
+camera_position = Vector2( 100, -200 )
+camera_zoom = Vector2( 1.45, 1.45 )
+
+[node name="MidCam" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1033, -200 )
+scale = Vector2( 29, 23 )
+camera_path = NodePath("../Camera")
+camera_position = Vector2( 1150, -200 )
+camera_zoom = Vector2( 1, 1 )
+
+[node name="EndCam" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1896, -202 )
+scale = Vector2( 57, 23 )
+camera_path = NodePath("../Camera")
+camera_position = Vector2( 1730, -200 )
+camera_zoom = Vector2( 1, 1 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -550, -88 )
+current = true

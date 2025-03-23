@@ -1,0 +1,116 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 8
+syntax_version = 2
+raw_text = "~ending dilemma
+Red: [do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it
+Blue: [color=#0000FF]why is there two buttons, the old man only said there was one
+Red: [do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?” 
+Note: I forgot to tell you, due to your situation being weird, only one of you can have a permanent body. PS. please take out the trash when you leave
+Red: [do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?
+Blue: [color=#0000FF]it seems like it, I cant let it be you...
+Red: [do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore
+Blue: [color=#0000FF]you can save people, you need to keep going, the world needs people like you
+Red: [do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect
+#Player makes a choice
+#fade to black
+#roll creditsz
+"
+errors = [  ]
+titles = {
+}
+lines = {
+"0": {
+"character": "",
+"next_id": "1",
+"replacements": [  ],
+"text": "~ending dilemma",
+"translation_key": "~ending dilemma",
+"type": "dialogue"
+},
+"1": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "2",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it",
+"translation_key": "[do comic_play_sound(\"Red_-05\")][color=#FF0000]finally, we made it",
+"type": "dialogue"
+},
+"2": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "3",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"why is there two buttons\")][color=#0000FF]why is there two buttons, the old man only said there was one",
+"translation_key": "[do comic_play_sound(\"why is there two buttons\")][color=#0000FF]why is there two buttons, the old man only said there was one",
+"type": "dialogue"
+},
+"3": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "4",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?”",
+"translation_key": "[do comic_play_sound(\"Red_-06\")][color=#FF0000]hey, what does the note say?”",
+"type": "dialogue"
+},
+"4": {
+"character": "Note",
+"character_replacements": [  ],
+"next_id": "5",
+"replacements": [  ],
+"text": "I forgot to tell you, due to your situation being weird, only one of you can have a permanent body. PS. please take out the trash when you leave",
+"translation_key": "I forgot to tell you, due to your situation being weird, only one of you can have a permanent body. PS. please take out the trash when you leave",
+"type": "dialogue"
+},
+"5": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "6",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?",
+"translation_key": "[do comic_play_sound(\"Red_-07\")][color=#FF0000]so we’re just supposed to choose?",
+"type": "dialogue"
+},
+"6": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "7",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"it seems like it\")][color=#0000FF]it seems like it, I cant let it be you...",
+"translation_key": "[do comic_play_sound(\"it seems like it\")][color=#0000FF]it seems like it, I cant let it be you...",
+"type": "dialogue"
+},
+"7": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "8",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
+"translation_key": "[do comic_play_sound(\"Red_-08\")][color=#FF0000]Its not gonna be you either. I dont like our adventure anymore",
+"type": "dialogue"
+},
+"8": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "9",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"you can save people\")][color=#0000FF]you can save people, you need to keep going, the world needs people like you",
+"translation_key": "[do comic_play_sound(\"you can save people\")][color=#0000FF]you can save people, you need to keep going, the world needs people like you",
+"type": "dialogue"
+},
+"9": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
+"translation_key": "[do comic_play_sound(\"Red_-09\")][color=#FF0000]im not going to let you do that for me, you have so much left to do, so much to protect",
+"type": "dialogue"
+}
+}

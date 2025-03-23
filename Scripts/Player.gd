@@ -8,7 +8,9 @@ onready var red_right = $RedRight
 onready var red_left = $RedLeft
 
 onready var collision_shape = $CollisionShape
-onready var direction_objecct = $DirectionObject
+onready var crawl_collision_shape = $CollisionShape
+onready var direction_object = $DirectionObject
+onready var arrow_cooldown = $ArrowCooldown
 
 # Floor checking
 onready var left_floor_cast = $LeftFloorCast
@@ -33,6 +35,7 @@ var velocity = Vector2.ZERO
 # Crawling
 var original_scale = Vector2.ONE
 var crawling = false
+var can_crawl = false
 
 # Box moving
 const PUSH_FORCE = 100
@@ -151,7 +154,11 @@ func get_movement_input():
 			animation_players[current_anim_player()].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
-		animation_players[current_anim_player()].play("RESET")
+
+		if current_character == characters.BLUE && crawling:
+			animation_players[current_anim_player()].stop(false)
+		else:
+			animation_players[current_anim_player()].play("RESET")
 
 func jumping():
 	if Input.is_action_just_pressed("Jump"):
@@ -165,9 +172,13 @@ func jumping():
 # Crawling
 func init_crawl():
 	crawling = true
+	crawl_collision_shape.set_deferred("disabled", false)
+	collision_shape.set_deferred("disabled", true)
 
 func deinit_crawl():
 	crawling = false
+	crawl_collision_shape.set_deferred("disabled", true)
+	collision_shape.set_deferred("disabled", false)
 
 # Reparenting
 func reparent(node, new_parent):
@@ -197,7 +208,7 @@ func box_check():
 func _physics_process(delta):
 	movement(delta)
 
-	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/2, false)
 
 	box_check()
 
@@ -209,7 +220,23 @@ func _unhandled_input(event):
 		switch_character()
 	
 	if event is InputEventMouseMotion:
-		print(get_viewport().get_mouse_position())
+		var mouse_pos = get_viewport().get_mouse_position() - get_global_transform_with_canvas().get_origin()
+		
+		direction_object.position = mouse_pos.normalized()
+	elif event is InputEventMouseButton:
+		if event.button_index == 1 && event.pressed:
+			if current_character == characters.RED && spears > 0 && arrow_cooldown.is_stopped():
+				var mouse_pos = get_viewport().get_mouse_position() - get_global_transform_with_canvas().get_origin()
+		
+				direction_object.position = mouse_pos.normalized()
+
+				var new_spear = spear.instance()
+				get_parent().add_child(new_spear)
+				new_spear.position = position + direction_object.position
+				new_spear.rotation_degrees = rad2deg((direction_object.position * Vector2(1,-1)).angle_to(Vector2.RIGHT))
+				
+				spears -= 1
+				arrow_cooldown.start()
 
 # Character switching
 func switch_to_blue():
@@ -221,6 +248,9 @@ func switch_to_blue():
 	red_left.hide()
 	red_right.hide()
 	set_direction(direction)
+
+	if can_crawl:
+		init_crawl()
 
 func switch_to_red():
 	print("Switched to red")
@@ -242,10 +272,12 @@ func switch_character():
 		print("Invalid current character")
 
 func attempt_crawl():
+	can_crawl = true
 	if current_character == characters.BLUE:
 		init_crawl()
 
 func attempt_un_crawl():
+	can_crawl = false
 	deinit_crawl()
 
 # Detect rubbing up against block

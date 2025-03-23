@@ -6,11 +6,14 @@ export(float) var speed_mult = 1.0
 var start_position
 var moving = false
 var t = 0.0
+var activated = false
 var player_touchable = false
 
 func red_player_action():
-	moving = true
-	start_position = position
+	if not activated:
+		moving = true
+		activated = true
+		start_position = position
 
 func _physics_process(delta):
 	if moving:
