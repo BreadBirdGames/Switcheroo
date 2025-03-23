@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 55
+resource_version = 57
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
