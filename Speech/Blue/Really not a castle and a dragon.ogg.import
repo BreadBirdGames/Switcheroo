@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Really not a castle and a dragon.ogg-189f72498bbcf08
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GooSound.ogg-ea8433b8120778c5b18ece550601080a.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

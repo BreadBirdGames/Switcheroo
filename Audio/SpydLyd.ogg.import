@@ -11,5 +11,5 @@ dest_files=[ "res://.import/SpydLyd.ogg-e020e2c17a79afa0f66be95e7ffb0eaa.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

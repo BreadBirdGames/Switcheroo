@@ -11,5 +11,5 @@ dest_files=[ "res://.import/I never thought of you as the heroric type i guess i
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
