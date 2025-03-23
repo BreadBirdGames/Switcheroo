@@ -8,6 +8,7 @@ onready var red_right = $RedRight
 onready var red_left = $RedLeft
 
 onready var collision_shape = $CollisionShape
+onready var direction_objecct = $DirectionObject
 
 # Floor checking
 onready var left_floor_cast = $LeftFloorCast
@@ -23,6 +24,7 @@ export (int) var gravity = 4000
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.25
 export (int) var max_jump_frames = 10
+export(PackedScene) var spear
 var coyote_jumping = false
 var jump_frames = 0
 
@@ -55,6 +57,9 @@ onready var animation_players = {
 	"blue_right": $BlueRight/AnimationPlayer,
 	"blue_left": $BlueLeft/AnimationPlayer,
 }
+
+# Misc
+var spears = 0
 
 # Directions
 enum directions {
@@ -172,7 +177,7 @@ func reparent(node, new_parent):
 	new_parent.call_deferred("add_child", node)
 
 # Box moving
-func box_check(delta):
+func box_check():
 	if current_character == characters.RED:
 		if Input.is_action_pressed("Activate"):
 			if current_box != null:
@@ -194,7 +199,7 @@ func _physics_process(delta):
 
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 
-	box_check(delta)
+	box_check()
 
 	jumping()
 
@@ -202,6 +207,9 @@ func _physics_process(delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("Switch_Character"):
 		switch_character()
+	
+	if event is InputEventMouseMotion:
+		print(get_viewport().get_mouse_position())
 
 # Character switching
 func switch_to_blue():
