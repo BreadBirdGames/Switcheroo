@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Dont even try youll get hurt let me do it.ogg-babfa1
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/no time to waste.ogg-576a64d76021ff47e8fd0db9fd5f442
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

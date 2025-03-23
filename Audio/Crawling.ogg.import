@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Crawling.ogg-d147a00f72c43017689ad55521fe9229.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

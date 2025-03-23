@@ -29,11 +29,11 @@ current = true
 zoom = Vector2( 0.7, 0.7 )
 
 [node name="PageTimer1" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 one_shot = true
 
 [node name="PageTimer2" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
 one_shot = true
 
 [node name="Page" type="Node2D" parent="."]
@@ -109,5 +109,6 @@ position = Vector2( 1460, 3534 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="timeout" from="PageTimer1" to="." method="_on_PageTimer1_timeout"]
 [connection signal="timeout" from="PageTimer2" to="." method="_on_PageTimer2_timeout"]

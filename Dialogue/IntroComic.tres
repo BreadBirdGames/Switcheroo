@@ -4,30 +4,32 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 12
+resource_version = 52
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
-Red: [color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]
-Blue: [color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]
-BOOM
-Red: [color=#FF0000]whoa what happened?[/color]
-Blue: [color=#0000FF]Wait am i in your head?[/color]
-Red: [color=#FF0000]Ohh its like we are connected bro[/color]
-Blue: [color=#0000FF]I think we are?[/color]
-Red: [color=#FF0000]That's SO COOL[/color]
-Blue: [color=#0000FF]sure… but how do we get me out?[/color]
-Old man pops up 
-Old Man: Hello there, I bet you are wondering whats going on
-Blue: [color=#0000FF]If you have the answer, please do tell[/color]
-Old Man: Well back in my days there was a story about a good old button
-Red: [color=#FF0000]And!!?[/color] 
-Old Man: I happen to know how to get to the button 
-Red: [color=#FF0000]YES!?[/color]
-Old Man: Well, listen closely, its in that tower, over there
-Blue: [color=#0000FF]Really? Not a castle and a dragon?[/color]z
-Old Man: Nope its right over there
-Blue: [color=#0000FF]No time to waste[/color]
+Red: [do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!
+Blue: [do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()][color=#0000FF]We can't be sure of that.
+[do comic_play_sound(\"TickTick\")][do comic_move_page()]Tick tick tick...
+[do comic_play_sound(\"Boom\")][do comic_move_page()]BOOM
+[do comic_move_page()]...
+Red: [do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?
+Blue: [do comic_play_sound(\"Blue_InYourHead\")][color=#0000FF]Wait am i in your head?
+Red: [do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro
+Blue: [do comic_play_sound(\"Blue_ThinkWeAre\")][do comic_move_page()][color=#0000FF]I think we are?
+Red: [do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL
+Blue: [do comic_play_sound(\"Blue_HowGetOut\")][color=#0000FF]sure… but how do we get me out?
+[do comic_play_sound(\"MagicPoof\")][do comic_move_page()]Old man pops up 
+Old Man: [do comic_play_sound(\"Old_Hello\")]Hello there, I bet you are wondering whats going on
+Blue: [do comic_play_sound(\"Blue_HaveAnswer\")][do comic_move_page()][color=#0000FF]If you have the answer, please do tell
+Old Man: [do comic_play_sound(\"Old_BackInMy\")]Well back in my days there was a story about a good old button
+Red: [do comic_play_sound(\"Red_And\")][color=#FF0000]And!!?
+Old Man: [do comic_play_sound(\"Old_HappenTo\")]I happen to know how to get to the button 
+Red: [do comic_play_sound(\"Red_Yes\")][color=#FF0000]YES!?
+Old Man: [do comic_play_sound(\"Old_ListenClose\")][do comic_move_page()]Well, listen closely, its in that tower, over there
+Blue: [do comic_play_sound(\"Blue_NotACastle\")][do comic_move_page()][color=#0000FF]Really? Not a castle and a dragon?
+Old Man: [do comic_play_sound(\"Old_OverThere\")]Nope its right over there
+Blue: [do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste
 "
 errors = [  ]
 titles = {
@@ -44,34 +46,34 @@ lines = {
 "character_replacements": [  ],
 "next_id": "11",
 "replacements": [  ],
-"text": "[color=#0000FF]sure… but how do we get me out?[/color]",
-"translation_key": "[color=#0000FF]sure… but how do we get me out?[/color]",
+"text": "[do comic_play_sound(\"Blue_ThinkWeAre\")][do comic_move_page()][color=#0000FF]I think we are?",
+"translation_key": "[do comic_play_sound(\"Blue_ThinkWeAre\")][do comic_move_page()][color=#0000FF]I think we are?",
 "type": "dialogue"
 },
 "11": {
-"character": "",
+"character": "Red",
+"character_replacements": [  ],
 "next_id": "12",
 "replacements": [  ],
-"text": "Old man pops up",
-"translation_key": "Old man pops up",
+"text": "[do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL",
+"translation_key": "[do comic_play_sound(\"Red_SoCool\")][color=#FF0000]That's SO COOL",
 "type": "dialogue"
 },
 "12": {
-"character": "Old Man",
+"character": "Blue",
 "character_replacements": [  ],
 "next_id": "13",
 "replacements": [  ],
-"text": "Hello there, I bet you are wondering whats going on",
-"translation_key": "Hello there, I bet you are wondering whats going on",
+"text": "[do comic_play_sound(\"Blue_HowGetOut\")][color=#0000FF]sure… but how do we get me out?",
+"translation_key": "[do comic_play_sound(\"Blue_HowGetOut\")][color=#0000FF]sure… but how do we get me out?",
 "type": "dialogue"
 },
 "13": {
-"character": "Blue",
-"character_replacements": [  ],
+"character": "",
 "next_id": "14",
 "replacements": [  ],
-"text": "[color=#0000FF]If you have the answer, please do tell[/color]",
-"translation_key": "[color=#0000FF]If you have the answer, please do tell[/color]",
+"text": "[do comic_play_sound(\"MagicPoof\")][do comic_move_page()]Old man pops up",
+"translation_key": "[do comic_play_sound(\"MagicPoof\")][do comic_move_page()]Old man pops up",
 "type": "dialogue"
 },
 "14": {
@@ -79,17 +81,17 @@ lines = {
 "character_replacements": [  ],
 "next_id": "15",
 "replacements": [  ],
-"text": "Well back in my days there was a story about a good old button",
-"translation_key": "Well back in my days there was a story about a good old button",
+"text": "[do comic_play_sound(\"Old_Hello\")]Hello there, I bet you are wondering whats going on",
+"translation_key": "[do comic_play_sound(\"Old_Hello\")]Hello there, I bet you are wondering whats going on",
 "type": "dialogue"
 },
 "15": {
-"character": "Red",
+"character": "Blue",
 "character_replacements": [  ],
 "next_id": "16",
 "replacements": [  ],
-"text": "[color=#FF0000]And!!?[/color]",
-"translation_key": "[color=#FF0000]And!!?[/color]",
+"text": "[do comic_play_sound(\"Blue_HaveAnswer\")][do comic_move_page()][color=#0000FF]If you have the answer, please do tell",
+"translation_key": "[do comic_play_sound(\"Blue_HaveAnswer\")][do comic_move_page()][color=#0000FF]If you have the answer, please do tell",
 "type": "dialogue"
 },
 "16": {
@@ -97,8 +99,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "17",
 "replacements": [  ],
-"text": "I happen to know how to get to the button",
-"translation_key": "I happen to know how to get to the button",
+"text": "[do comic_play_sound(\"Old_BackInMy\")]Well back in my days there was a story about a good old button",
+"translation_key": "[do comic_play_sound(\"Old_BackInMy\")]Well back in my days there was a story about a good old button",
 "type": "dialogue"
 },
 "17": {
@@ -106,8 +108,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "18",
 "replacements": [  ],
-"text": "[color=#FF0000]YES!?[/color]",
-"translation_key": "[color=#FF0000]YES!?[/color]",
+"text": "[do comic_play_sound(\"Red_And\")][color=#FF0000]And!!?",
+"translation_key": "[do comic_play_sound(\"Red_And\")][color=#FF0000]And!!?",
 "type": "dialogue"
 },
 "18": {
@@ -115,17 +117,17 @@ lines = {
 "character_replacements": [  ],
 "next_id": "19",
 "replacements": [  ],
-"text": "Well, listen closely, its in that tower, over there",
-"translation_key": "Well, listen closely, its in that tower, over there",
+"text": "[do comic_play_sound(\"Old_HappenTo\")]I happen to know how to get to the button",
+"translation_key": "[do comic_play_sound(\"Old_HappenTo\")]I happen to know how to get to the button",
 "type": "dialogue"
 },
 "19": {
-"character": "Blue",
+"character": "Red",
 "character_replacements": [  ],
 "next_id": "20",
 "replacements": [  ],
-"text": "[color=#0000FF]Really? Not a castle and a dragon?[/color]z",
-"translation_key": "[color=#0000FF]Really? Not a castle and a dragon?[/color]z",
+"text": "[do comic_play_sound(\"Red_Yes\")][color=#FF0000]YES!?",
+"translation_key": "[do comic_play_sound(\"Red_Yes\")][color=#FF0000]YES!?",
 "type": "dialogue"
 },
 "2": {
@@ -133,8 +135,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "3",
 "replacements": [  ],
-"text": "[color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]",
-"translation_key": "[color=#FF0000][do comic_play_sound(\"Red_BlueButton\")][do comic_move_page()]It's the blue button! it has to be![/color]",
+"text": "[do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!",
+"translation_key": "[do comic_play_sound(\"Red_BlueButton\")][color=#FF0000]It's the blue button! it has to be!",
 "type": "dialogue"
 },
 "20": {
@@ -142,17 +144,35 @@ lines = {
 "character_replacements": [  ],
 "next_id": "21",
 "replacements": [  ],
-"text": "Nope its right over there",
-"translation_key": "Nope its right over there",
+"text": "[do comic_play_sound(\"Old_ListenClose\")][do comic_move_page()]Well, listen closely, its in that tower, over there",
+"translation_key": "[do comic_play_sound(\"Old_ListenClose\")][do comic_move_page()]Well, listen closely, its in that tower, over there",
 "type": "dialogue"
 },
 "21": {
 "character": "Blue",
 "character_replacements": [  ],
+"next_id": "22",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Blue_NotACastle\")][do comic_move_page()][color=#0000FF]Really? Not a castle and a dragon?",
+"translation_key": "[do comic_play_sound(\"Blue_NotACastle\")][do comic_move_page()][color=#0000FF]Really? Not a castle and a dragon?",
+"type": "dialogue"
+},
+"22": {
+"character": "Old Man",
+"character_replacements": [  ],
+"next_id": "23",
+"replacements": [  ],
+"text": "[do comic_play_sound(\"Old_OverThere\")]Nope its right over there",
+"translation_key": "[do comic_play_sound(\"Old_OverThere\")]Nope its right over there",
+"type": "dialogue"
+},
+"23": {
+"character": "Blue",
+"character_replacements": [  ],
 "next_id": "",
 "replacements": [  ],
-"text": "[color=#0000FF]No time to waste[/color]",
-"translation_key": "[color=#0000FF]No time to waste[/color]",
+"text": "[do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste",
+"translation_key": "[do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste",
 "type": "dialogue"
 },
 "3": {
@@ -160,34 +180,32 @@ lines = {
 "character_replacements": [  ],
 "next_id": "4",
 "replacements": [  ],
-"text": "[color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]",
-"translation_key": "[color=#0000FF][do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()]We can't be sure of that.[/color]",
+"text": "[do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()][color=#0000FF]We can't be sure of that.",
+"translation_key": "[do comic_play_sound(\"Blue_CantBeSure\")][do comic_move_page()][color=#0000FF]We can't be sure of that.",
 "type": "dialogue"
 },
 "4": {
 "character": "",
 "next_id": "5",
 "replacements": [  ],
-"text": "BOOM",
-"translation_key": "BOOM",
+"text": "[do comic_play_sound(\"TickTick\")][do comic_move_page()]Tick tick tick...",
+"translation_key": "[do comic_play_sound(\"TickTick\")][do comic_move_page()]Tick tick tick...",
 "type": "dialogue"
 },
 "5": {
-"character": "Red",
-"character_replacements": [  ],
+"character": "",
 "next_id": "6",
 "replacements": [  ],
-"text": "[color=#FF0000]whoa what happened?[/color]",
-"translation_key": "[color=#FF0000]whoa what happened?[/color]",
+"text": "[do comic_play_sound(\"Boom\")][do comic_move_page()]BOOM",
+"translation_key": "[do comic_play_sound(\"Boom\")][do comic_move_page()]BOOM",
 "type": "dialogue"
 },
 "6": {
-"character": "Blue",
-"character_replacements": [  ],
+"character": "",
 "next_id": "7",
 "replacements": [  ],
-"text": "[color=#0000FF]Wait am i in your head?[/color]",
-"translation_key": "[color=#0000FF]Wait am i in your head?[/color]",
+"text": "[do comic_move_page()]...",
+"translation_key": "[do comic_move_page()]...",
 "type": "dialogue"
 },
 "7": {
@@ -195,8 +213,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "8",
 "replacements": [  ],
-"text": "[color=#FF0000]Ohh its like we are connected bro[/color]",
-"translation_key": "[color=#FF0000]Ohh its like we are connected bro[/color]",
+"text": "[do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?",
+"translation_key": "[do comic_play_sound(\"Red_WhatHappened\")][do comic_move_page()][color=#FF0000]whoa what happened?",
 "type": "dialogue"
 },
 "8": {
@@ -204,8 +222,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "9",
 "replacements": [  ],
-"text": "[color=#0000FF]I think we are?[/color]",
-"translation_key": "[color=#0000FF]I think we are?[/color]",
+"text": "[do comic_play_sound(\"Blue_InYourHead\")][color=#0000FF]Wait am i in your head?",
+"translation_key": "[do comic_play_sound(\"Blue_InYourHead\")][color=#0000FF]Wait am i in your head?",
 "type": "dialogue"
 },
 "9": {
@@ -213,8 +231,8 @@ lines = {
 "character_replacements": [  ],
 "next_id": "10",
 "replacements": [  ],
-"text": "[color=#FF0000]That's SO COOL[/color]",
-"translation_key": "[color=#FF0000]That's SO COOL[/color]",
+"text": "[do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
+"translation_key": "[do comic_play_sound(\"Red_ConnectedBro\")][do comic_move_page()][color=#FF0000]Ohh its like we are connected bro",
 "type": "dialogue"
 }
 }

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/you can save people.ogg-b47ab0332bd7a9c0601372fe46c2
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
