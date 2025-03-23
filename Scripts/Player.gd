@@ -56,6 +56,7 @@ onready var animation_players = {
 	"blue_left": $BlueLeft/AnimationPlayer,
 }
 
+# Directions
 enum directions {
 	LEFT,
 	RIGHT
@@ -139,7 +140,10 @@ func get_movement_input():
 		elif velocity.x < 0:
 			set_direction(directions.LEFT)
 
-		animation_players[current_anim_player()].play("Run")
+		if current_character == characters.BLUE && crawling:
+			animation_players[current_anim_player()].play("Crawl")
+		else:
+			animation_players[current_anim_player()].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
 		animation_players[current_anim_player()].play("RESET")
@@ -155,13 +159,9 @@ func jumping():
 
 # Crawling
 func init_crawl():
-	original_scale = scale
-	scale = Vector2(1, 0.25)
 	crawling = true
 
 func deinit_crawl():
-	scale = original_scale
-	original_scale = Vector2.ONE
 	crawling = false
 
 # Reparenting
@@ -178,10 +178,6 @@ func box_check(delta):
 			if current_box != null:
 				if current_box.has_method("red_player_action"):
 					current_box.red_player_action()
-				else:
-					if velocity.x < 0:
-						#current_box.set_collision_mask_bit(1, false)
-						current_box.apply_central_impulse(Vector2(velocity.x,0) * PUSH_FORCE * delta)
 		else:
 			for i in get_slide_count():
 				var collision = get_slide_collision(i)

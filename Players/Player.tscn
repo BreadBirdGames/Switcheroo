@@ -24,7 +24,6 @@ position = Vector2( 0, 5 )
 scale = Vector2( 0.085, 0.085 )
 
 [node name="RedLeft" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 0, 5 )
 scale = Vector2( 0.085, 0.085 )
 

@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Switcheroo"
-run/main_scene="res://main.tscn"
+run/main_scene="res://Comic/Comic.tscn"
 config/icon="res://icon.png"
 
 [autoload]

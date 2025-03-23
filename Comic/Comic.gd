@@ -118,4 +118,8 @@ func _on_AudioStreamPlayer_finished():
 	$AudioStreamPlayer.stream = null
 	$AudioStreamPlayer.stop()
 
-	DialogueInterface.balloon.next(DialogueInterface.balloon.dialogue_line.next_id)
+	if DialogueInterface.balloon.dialogue_line != null:
+		DialogueInterface.balloon.next(DialogueInterface.balloon.dialogue_line.next_id)
+
+func load_into_game():
+	get_tree().change_scene("res://Levels/Level1.tscn")

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-resource_version = 52
+resource_version = 57
 syntax_version = 2
 raw_text = "~ ComicSubtitles
 
@@ -30,7 +30,7 @@ Old Man: [do comic_play_sound(\"Old_ListenClose\")][do comic_move_page()]Well, l
 Blue: [do comic_play_sound(\"Blue_NotACastle\")][do comic_move_page()][color=#0000FF]Really? Not a castle and a dragon?
 Old Man: [do comic_play_sound(\"Old_OverThere\")]Nope its right over there
 Blue: [do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste
-"
+[do load_into_game()]..."
 errors = [  ]
 titles = {
 "ComicSubtitles": "2"
@@ -169,10 +169,18 @@ lines = {
 "23": {
 "character": "Blue",
 "character_replacements": [  ],
-"next_id": "",
+"next_id": "24",
 "replacements": [  ],
 "text": "[do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste",
 "translation_key": "[do comic_play_sound(\"Blue_NoTime\")][color=#0000FF]No time to waste",
+"type": "dialogue"
+},
+"24": {
+"character": "",
+"next_id": "",
+"replacements": [  ],
+"text": "[do load_into_game()]...",
+"translation_key": "[do load_into_game()]...",
 "type": "dialogue"
 },
 "3": {
