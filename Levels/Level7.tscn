@@ -1,8 +1,43 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=15 format=2]
 
+[ext_resource path="res://LD/ButtonLeft.png" type="Texture" id=1]
 [ext_resource path="res://LD/Level7.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Level7.gd" type="Script" id=3]
+[ext_resource path="res://Nodes/UI/dialogue_balloon/font_bold.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Players/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://LD/ButtonsBG.png" type="Texture" id=6]
+[ext_resource path="res://LD/ButtonsFG.png" type="Texture" id=7]
+[ext_resource path="res://LD/ButtonRight.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.588235, 0.588235, 0.588235, 0.588235 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 4 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 5 )
+Panel/styles/panel = SubResource( 6 )
 
 [node name="Level7" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+playback_speed = 10.0
+playback/speed = 10.0
 
 [node name="Level7" type="Sprite" parent="."]
 position = Vector2( 188, 323.5 )
@@ -12,4 +47,89 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -346, 389, -625, 388, -584, -243, 1059, -222, 1026, 849, -693, 786, -572, 535, -404, 567, 507, 563, 510, 500, 720, 329, 785, 330, 781, 99, -340, 103 )
+polygon = PoolVector2Array( -346, 389, -625, 388, -584, -243, 1059, -222, 1026, 849, -693, 786, -572, 535, -406, 333, -404, 567, 507, 563, 510, 500, 720, 329, 785, 330, 781, 99, -340, 103 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = -20.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 6 )
+stretch_mode = 1
+
+[node name="RedButtonTexture" type="TextureRect" parent="Control"]
+margin_left = -20.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="BlueButtonTexture" type="TextureRect" parent="Control"]
+margin_left = -20.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 8 )
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Control"]
+margin_left = -20.0
+margin_right = 1900.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 7 )
+stretch_mode = 1
+
+[node name="RedButton" type="Button" parent="Control"]
+margin_left = 219.0
+margin_top = 236.0
+margin_right = 449.0
+margin_bottom = 417.0
+
+[node name="BlueButton" type="Button" parent="Control"]
+margin_left = 597.0
+margin_top = 230.0
+margin_right = 827.0
+margin_bottom = 411.0
+
+[node name="RedPanel" type="Panel" parent="Control"]
+margin_left = 186.0
+margin_top = 126.0
+margin_right = 461.0
+margin_bottom = 214.0
+
+[node name="Label" type="Label" parent="Control/RedPanel"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Red Dies"
+
+[node name="BluePanel" type="Panel" parent="Control"]
+margin_left = 558.0
+margin_top = 126.0
+margin_right = 855.0
+margin_bottom = 214.0
+
+[node name="Label" type="Label" parent="Control/BluePanel"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Blue Dies"
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -356, 484 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 200, 350 )
+zoom = Vector2( 1.25, 1.25 )
+
+[connection signal="mouse_entered" from="Control/RedButton" to="." method="_on_RedButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/RedButton" to="." method="_on_RedButton_mouse_exited"]
+[connection signal="pressed" from="Control/RedButton" to="." method="_on_RedButton_pressed"]
+[connection signal="mouse_entered" from="Control/BlueButton" to="." method="_on_BlueButton_mouse_entered"]
+[connection signal="mouse_exited" from="Control/BlueButton" to="." method="_on_BlueButton_mouse_exited"]
+[connection signal="pressed" from="Control/BlueButton" to="." method="_on_BlueButton_pressed"]
