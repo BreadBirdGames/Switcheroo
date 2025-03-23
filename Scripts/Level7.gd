@@ -9,7 +9,12 @@ func _ready():
 	$Control/RedPanel.hide()
 	original_blue_position = $Control/BlueButtonTexture.rect_position
 	original_red_position = $Control/RedButtonTexture.rect_position
-	#$Control.hide()
+	$Control.hide()
+
+func reveal():
+	print("uwu")
+	$Control.show()
+	$Player.queue_free()
 
 func _on_BlueButton_pressed():
 	get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://LD/ButtonLeft.png" type="Texture" id=1]
 [ext_resource path="res://LD/Level7.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://LD/ButtonsBG.png" type="Texture" id=6]
 [ext_resource path="res://LD/ButtonsFG.png" type="Texture" id=7]
 [ext_resource path="res://LD/ButtonRight.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Level7Buttons.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=7]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -49,9 +52,28 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -346, 389, -625, 388, -584, -243, 1059, -222, 1026, 849, -693, 786, -572, 535, -406, 333, -404, 567, 507, 563, 510, 500, 720, 329, 785, 330, 781, 99, -340, 103 )
 
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( -356, 484 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 200, 350 )
+current = true
+zoom = Vector2( 1.25, 1.25 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Boxes"]]
+position = Vector2( 565, 460 )
+scale = Vector2( 5.61279, 12.2435 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 7 )
+
 [node name="Control" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -425.0
+margin_top = -30.0
+margin_right = -385.0
+margin_bottom = 10.0
+rect_scale = Vector2( 1.22284, 1.27347 )
 theme = SubResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
@@ -119,13 +141,6 @@ margin_bottom = 214.0
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Blue Dies"
-
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -356, 484 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 200, 350 )
-zoom = Vector2( 1.25, 1.25 )
 
 [connection signal="mouse_entered" from="Control/RedButton" to="." method="_on_RedButton_mouse_entered"]
 [connection signal="mouse_exited" from="Control/RedButton" to="." method="_on_RedButton_mouse_exited"]
