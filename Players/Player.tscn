@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Players/RedRight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Players/RedLeft.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Players/BlueRight.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Players/BlueLeft.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 70 )
@@ -13,6 +15,7 @@ extents = Vector2( 10, 65 )
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 1 )
 speed = 500
+blue_jump_speed = -1200
 friction = 0.5
 max_jump_frames = 3
 
@@ -25,7 +28,13 @@ visible = false
 position = Vector2( 0, 5 )
 scale = Vector2( 0.085, 0.085 )
 
-[node name="RedCollisionShape" type="CollisionShape2D" parent="."]
+[node name="BlueLeft" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 0.07, 0.07 )
+
+[node name="BlueRight" parent="." instance=ExtResource( 4 )]
+scale = Vector2( 0.07, 0.07 )
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]

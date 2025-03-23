@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Why are you in the bomb squad with strength like that.ogg-43f22020711f5c9c3e192ff05663ff5e.oggstr"
+
+[deps]
+
+source_file="res://Speech/Blue/Why are you in the bomb squad with strength like that.ogg"
+dest_files=[ "res://.import/Why are you in the bomb squad with strength like that.ogg-43f22020711f5c9c3e192ff05663ff5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

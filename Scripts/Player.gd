@@ -2,11 +2,12 @@ extends KinematicBody2D
 class_name Player
 
 #Compontents
-# onready var blue = $Blue
-# onready var blue_collision_shape = $BlueCollisionShape
+onready var blue_left = $BlueLeft
+onready var blue_right = $BlueRight
 onready var red_right = $RedRight
 onready var red_left = $RedLeft
-onready var red_collision_shape = $RedCollisionShape
+
+onready var collision_shape = $CollisionShape
 
 # Floor checking
 onready var left_floor_cast = $LeftFloorCast
@@ -17,7 +18,7 @@ onready var right_floor_cast = $RightFloorCast
 export (int) var speed = 1200
 export (int) var red_jump_speed = -1000
 export (int) var blue_jump_speed = -1800
-var jump_speed = red_jump_speed
+var jump_speed = 0
 export (int) var gravity = 4000
 export (float, 0, 1.0) var friction = 0.1
 export (float, 0, 1.0) var acceleration = 0.25
@@ -41,18 +42,20 @@ var currently_picked_box = null
 # Character switching
 enum characters {
 	RED,
-	BLUE
+	BLUE,
+	NONE
 }
 
-var current_character = characters.RED
+var current_character = characters.NONE
 
 # Animation
 onready var animation_players = {
 	"red_right": $RedRight/AnimationPlayer,
 	"red_left": $RedLeft/AnimationPlayer,
-	#"blue_right": $BlueRight/AnimationPlayer,
-	#"blue_left": $BlueLeft/AnimationPlayer,
+	"blue_right": $BlueRight/AnimationPlayer,
+	"blue_left": $BlueLeft/AnimationPlayer,
 }
+
 enum directions {
 	LEFT,
 	RIGHT
@@ -65,15 +68,15 @@ func set_direction(val):
 			red_left.hide()
 			red_right.show()
 		else:
-			animation_players["blue_left"].hide()
-			animation_players["blue_right"].show()
+			blue_left.hide()
+			blue_right.show()
 	elif val == directions.LEFT:
 		if current_character == characters.RED:
 			red_right.hide()
 			red_left.show()
 		else:
-			animation_players["blue_right"].hide()
-			animation_players["blue_left"].show()
+			blue_right.hide()
+			blue_left.show()
 
 	direction = val
 
@@ -102,6 +105,10 @@ func is_floored():
 	if right_floor_cast.is_colliding():
 		return true
 	return false
+
+# Start function
+func _ready():
+	switch_to_red()
 
 # Movement
 func movement(delta):
@@ -171,7 +178,7 @@ func box_check(delta):
 					current_box.red_player_action()
 				else:
 					if velocity.x < 0:
-						current_box.set_collision_mask_bit(1, false)
+						#current_box.set_collision_mask_bit(1, false)
 						current_box.apply_central_impulse(Vector2(velocity.x,0) * PUSH_FORCE * delta)
 		else:
 			for i in get_slide_count():
@@ -202,10 +209,11 @@ func switch_to_blue():
 	print("Switched to blue")
 	current_character = characters.BLUE
 	jump_speed = blue_jump_speed
-	#blue.show()
+	blue_left.show()
+	blue_right.show()
 	red_left.hide()
 	red_right.hide()
-	red_collision_shape.disabled = true
+	set_direction(direction)
 
 func switch_to_red():
 	print("Switched to red")
@@ -213,8 +221,9 @@ func switch_to_red():
 	jump_speed = red_jump_speed
 	red_left.show()
 	red_right.show()
-	red_collision_shape.disabled = false
-	#blue.hide()
+	blue_left.hide()
+	blue_right.hide()
+	set_direction(direction)
 
 # State changes
 func switch_character():

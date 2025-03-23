@@ -1,0 +1,193 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 5
+syntax_version = 2
+raw_text = "~entering the tutorial
+Red: [color=#FF0000]Aaah isnt this great?! we can really get to know each other!! 
+Blue: [color=#0000FF]I wouldnt call our situation great…
+Red: [color=#FF0000]But it is an adventure!
+Blue: [color=#0000FF]It sure is
+
+~Pushing a Block (tutorial)
+Blue: [color=#0000FF]why are you in the bomb squad with strength like that?
+Red: [color=#FF0000]bombs are dangerous, i thought it was here i would do the most good
+Blue: [color=#0000FF]i never thought of you as the heroic type, guess i was wrong
+
+~Blue crawls through a tight space (tutorial)
+Red: [color=#FF0000]wow, you fit through here? Thats awesome
+Blue: [color=#0000FF]i picked up a few tricks in my youth, im a bit out of practice but it’ll do
+
+~If Blue tries to push
+Red: [color=#FF0000]are you sure you can push that thing?
+Blue: [color=#0000FF]of course i can, would you mind helping though?
+
+
+~if Red Tries to crawl
+Red: [color=#FF0000]its so small, how do i fit through here?
+Blue: [color=#0000FF]dont even try, you’ll get hurt, let me do it"
+errors = [  ]
+titles = {
+}
+lines = {
+"0": {
+"character": "",
+"next_id": "1",
+"replacements": [  ],
+"text": "~entering the tutorial",
+"translation_key": "~entering the tutorial",
+"type": "dialogue"
+},
+"1": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "2",
+"replacements": [  ],
+"text": "[color=#FF0000]Aaah isnt this great?! we can really get to know each other!!",
+"translation_key": "[color=#FF0000]Aaah isnt this great?! we can really get to know each other!!",
+"type": "dialogue"
+},
+"11": {
+"character": "",
+"next_id": "12",
+"replacements": [  ],
+"text": "~Blue crawls through a tight space (tutorial)",
+"translation_key": "~Blue crawls through a tight space (tutorial)",
+"type": "dialogue"
+},
+"12": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "13",
+"replacements": [  ],
+"text": "[color=#FF0000]wow, you fit through here? Thats awesome",
+"translation_key": "[color=#FF0000]wow, you fit through here? Thats awesome",
+"type": "dialogue"
+},
+"13": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "15",
+"replacements": [  ],
+"text": "[color=#0000FF]i picked up a few tricks in my youth, im a bit out of practice but it’ll do",
+"translation_key": "[color=#0000FF]i picked up a few tricks in my youth, im a bit out of practice but it’ll do",
+"type": "dialogue"
+},
+"15": {
+"character": "",
+"next_id": "16",
+"replacements": [  ],
+"text": "~If Blue tries to push",
+"translation_key": "~If Blue tries to push",
+"type": "dialogue"
+},
+"16": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "17",
+"replacements": [  ],
+"text": "[color=#FF0000]are you sure you can push that thing?",
+"translation_key": "[color=#FF0000]are you sure you can push that thing?",
+"type": "dialogue"
+},
+"17": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "20",
+"replacements": [  ],
+"text": "[color=#0000FF]of course i can, would you mind helping though?",
+"translation_key": "[color=#0000FF]of course i can, would you mind helping though?",
+"type": "dialogue"
+},
+"2": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "3",
+"replacements": [  ],
+"text": "[color=#0000FF]I wouldnt call our situation great…",
+"translation_key": "[color=#0000FF]I wouldnt call our situation great…",
+"type": "dialogue"
+},
+"20": {
+"character": "",
+"next_id": "21",
+"replacements": [  ],
+"text": "~if Red Tries to crawl",
+"translation_key": "~if Red Tries to crawl",
+"type": "dialogue"
+},
+"21": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "22",
+"replacements": [  ],
+"text": "[color=#FF0000]its so small, how do i fit through here?",
+"translation_key": "[color=#FF0000]its so small, how do i fit through here?",
+"type": "dialogue"
+},
+"22": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "",
+"replacements": [  ],
+"text": "[color=#0000FF]dont even try, you’ll get hurt, let me do it",
+"translation_key": "[color=#0000FF]dont even try, you’ll get hurt, let me do it",
+"type": "dialogue"
+},
+"3": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "4",
+"replacements": [  ],
+"text": "[color=#FF0000]But it is an adventure!",
+"translation_key": "[color=#FF0000]But it is an adventure!",
+"type": "dialogue"
+},
+"4": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "6",
+"replacements": [  ],
+"text": "[color=#0000FF]It sure is",
+"translation_key": "[color=#0000FF]It sure is",
+"type": "dialogue"
+},
+"6": {
+"character": "",
+"next_id": "7",
+"replacements": [  ],
+"text": "~Pushing a Block (tutorial)",
+"translation_key": "~Pushing a Block (tutorial)",
+"type": "dialogue"
+},
+"7": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "8",
+"replacements": [  ],
+"text": "[color=#0000FF]why are you in the bomb squad with strength like that?",
+"translation_key": "[color=#0000FF]why are you in the bomb squad with strength like that?",
+"type": "dialogue"
+},
+"8": {
+"character": "Red",
+"character_replacements": [  ],
+"next_id": "9",
+"replacements": [  ],
+"text": "[color=#FF0000]bombs are dangerous, i thought it was here i would do the most good",
+"translation_key": "[color=#FF0000]bombs are dangerous, i thought it was here i would do the most good",
+"type": "dialogue"
+},
+"9": {
+"character": "Blue",
+"character_replacements": [  ],
+"next_id": "11",
+"replacements": [  ],
+"text": "[color=#0000FF]i never thought of you as the heroic type, guess i was wrong",
+"translation_key": "[color=#0000FF]i never thought of you as the heroic type, guess i was wrong",
+"type": "dialogue"
+}
+}

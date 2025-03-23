@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sure but how do we get me out.ogg-9f5a83f0e544bbd8ac96d383ad2b70fb.oggstr"
+
+[deps]
+
+source_file="res://Speech/Blue/Sure but how do we get me out.ogg"
+dest_files=[ "res://.import/Sure but how do we get me out.ogg-9f5a83f0e544bbd8ac96d383ad2b70fb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

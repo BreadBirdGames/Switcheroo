@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BoxScraping.ogg-cd7501c3e39e73dda0be8a789cff049e.oggstr"
+
+[deps]
+
+source_file="res://Audio/BoxScraping.ogg"
+dest_files=[ "res://.import/BoxScraping.ogg-cd7501c3e39e73dda0be8a789cff049e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
