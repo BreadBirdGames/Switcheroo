@@ -8,7 +8,7 @@
 [ext_resource path="res://Nodes/Spear.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15, 70 )
+extents = Vector2( 15, 25 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 65 )
@@ -39,6 +39,10 @@ scale = Vector2( 0.07, 0.07 )
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
+[node name="CrawlCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 45 )
+shape = SubResource( 2 )
+
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.6, 0.6 )
@@ -49,19 +53,19 @@ smoothing_speed = 10.0
 [node name="CenterFloorCast" type="RayCast2D" parent="."]
 position = Vector2( 0, 70 )
 enabled = true
-cast_to = Vector2( 0, 10 )
+cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [node name="LeftFloorCast" type="RayCast2D" parent="."]
 position = Vector2( -15, 70 )
 enabled = true
-cast_to = Vector2( 0, 10 )
+cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [node name="RightFloorCast" type="RayCast2D" parent="."]
 position = Vector2( 15, 70 )
 enabled = true
-cast_to = Vector2( 0, 10 )
+cast_to = Vector2( 0, 5 )
 collision_mask = 5
 
 [node name="BoxDetector" type="Area2D" parent="."]
@@ -74,3 +78,5 @@ shape = SubResource( 3 )
 
 [connection signal="body_entered" from="BoxDetector" to="." method="_on_BoxDetector_body_entered"]
 [connection signal="body_exited" from="BoxDetector" to="." method="_on_BoxDetector_body_exited"]
+
+[editable path="BlueLeft"]
