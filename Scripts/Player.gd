@@ -8,6 +8,7 @@ onready var red_right = $RedRight
 onready var red_left = $RedLeft
 
 onready var collision_shape = $CollisionShape
+onready var crawl_collision_shape = $CollisionShape
 onready var direction_objecct = $DirectionObject
 
 # Floor checking
@@ -106,11 +107,16 @@ func current_anim_player():
 
 # Floor check
 func is_floored():
+	var agreement = 0
+
 	if center_floor_cast.is_colliding():
-		return true
+		agreement += 1
 	if left_floor_cast.is_colliding():
-		return true
+		agreement += 1
 	if right_floor_cast.is_colliding():
+		agreement += 1
+	
+	if agreement >= 2:
 		return true
 	return false
 
@@ -151,7 +157,11 @@ func get_movement_input():
 			animation_players[current_anim_player()].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
-		animation_players[current_anim_player()].play("RESET")
+
+		if current_character == characters.BLUE && crawling:
+			animation_players[current_anim_player()].stop(false)
+		else:
+			animation_players[current_anim_player()].play("RESET")
 
 func jumping():
 	if Input.is_action_just_pressed("Jump"):
@@ -165,9 +175,13 @@ func jumping():
 # Crawling
 func init_crawl():
 	crawling = true
+	crawl_collision_shape.set_deferred("disabled", false)
+	collision_shape.set_deferred("disabled", true)
 
 func deinit_crawl():
 	crawling = false
+	crawl_collision_shape.set_deferred("disabled", true)
+	collision_shape.set_deferred("disabled", false)
 
 # Reparenting
 func reparent(node, new_parent):

@@ -236,6 +236,18 @@ tracks/18/keys = {
 "update": 0,
 "values": [ 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404, 44.8404 ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Skeleton2D/Hip:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 500 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -467,6 +479,18 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( -25.9532, 13.0931 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Skeleton2D/Hip:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Run"
@@ -651,13 +675,26 @@ tracks/14/keys = {
 "update": 0,
 "values": [ 3.25516, 3.25516, 3.25516, 3.25516, 3.25516, 3.25516 ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("Skeleton2D/Hip:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
-[node name="blue" type="Node2D"]
+[node name="BlueRight" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 3 )
 anims/RESET = SubResource( 2 )
 anims/Run = SubResource( 1 )
+blend_times = [ "Crawl", "Run", 0.1, "Run", "Crawl", 0.1 ]
 
 [node name="Polygons" type="Node2D" parent="."]
 __meta__ = {
