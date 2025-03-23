@@ -64,6 +64,7 @@ var direction = directions.RIGHT setget set_direction
 
 func set_direction(val):
 	if val == directions.RIGHT:
+		$BoxDetector.position.x = 25
 		if current_character == characters.RED:
 			red_left.hide()
 			red_right.show()
@@ -71,6 +72,7 @@ func set_direction(val):
 			blue_left.hide()
 			blue_right.show()
 	elif val == directions.LEFT:
+		$BoxDetector.position.x = -25
 		if current_character == characters.RED:
 			red_right.hide()
 			red_left.show()
