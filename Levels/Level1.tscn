@@ -92,3 +92,26 @@ camera_zoom = Vector2( 1, 1 )
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( -550, -88 )
 current = true
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = -11.0
+margin_top = -250.0
+margin_right = 266.0
+margin_bottom = -186.0
+text = "Red can push boxes, but can't jump
+over them."
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+margin_left = 381.0
+margin_top = -257.0
+margin_right = 658.0
+margin_bottom = -193.0
+text = "TAB to switch between Red and Blue"
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+margin_left = 991.0
+margin_top = -329.0
+margin_right = 1268.0
+margin_bottom = -265.0
+text = "Blue is agile and can crawl into
+small spaces"
