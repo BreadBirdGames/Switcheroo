@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Red_-07.ogg-12bf5691c01c97ec27d314053183ca8a.oggstr"
+
+[deps]
+
+source_file="res://Speech/Red/Red_-07.ogg"
+dest_files=[ "res://.import/Red_-07.ogg-12bf5691c01c97ec27d314053183ca8a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
