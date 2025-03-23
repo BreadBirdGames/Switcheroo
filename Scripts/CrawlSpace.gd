@@ -9,6 +9,5 @@ func _on_CrawlSpace_body_entered(body:Node):
 			body.attempt_crawl()
 
 func _on_CrawlSpace_body_exited(body:Node):
-	if enabled:
-		if body.is_in_group("Player"):
-			body.attempt_un_crawl()
+	if body.is_in_group("Player"):
+		body.attempt_un_crawl()

@@ -56,6 +56,7 @@ onready var animation_players = {
 	"blue_left": $BlueLeft/AnimationPlayer,
 }
 
+# Directions
 enum directions {
 	LEFT,
 	RIGHT
@@ -139,7 +140,10 @@ func get_movement_input():
 		elif velocity.x < 0:
 			set_direction(directions.LEFT)
 
-		animation_players[current_anim_player()].play("Run")
+		if current_character == characters.BLUE && crawling:
+			animation_players[current_anim_player()].play("Crawl")
+		else:
+			animation_players[current_anim_player()].play("Run")
 	else:
 		velocity.x = lerp(velocity.x, 0, friction)
 		animation_players[current_anim_player()].play("RESET")
@@ -155,13 +159,9 @@ func jumping():
 
 # Crawling
 func init_crawl():
-	original_scale = scale
-	scale = Vector2(1, 0.25)
 	crawling = true
 
 func deinit_crawl():
-	scale = original_scale
-	original_scale = Vector2.ONE
 	crawling = false
 
 # Reparenting

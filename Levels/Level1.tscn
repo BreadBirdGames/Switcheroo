@@ -43,8 +43,9 @@ position = Vector2( 1668, -114 )
 collision_mask = 7
 
 [node name="CrawlSpace" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1148, -178 )
-scale = Vector2( 10.6937, 4.41325 )
+position = Vector2( 1149, -86 )
+scale = Vector2( 15.478, -3.19289 )
+anim_names = [ "CrawlUp", "Crawl", "CrawlDown" ]
 
 [node name="LevelLoader2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2393, -87 )
