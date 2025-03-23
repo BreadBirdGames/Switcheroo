@@ -53,7 +53,7 @@ rotation = -0.261799
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -63, -242 )
-blue_jump_speed = -1200
+blue_jump_speed = -1300
 
 [node name="StartCam" parent="." instance=ExtResource( 4 )]
 position = Vector2( 418, -274 )

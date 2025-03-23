@@ -27,6 +27,7 @@ polygon = PoolVector2Array( -1022, -577, 1373, -577, 1350, -27, 1068, -20, 1064,
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -708, 110 )
+blue_jump_speed = -1200
 
 [node name="LevelLoader" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1158, 110 )
