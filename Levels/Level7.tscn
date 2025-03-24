@@ -69,6 +69,7 @@ script = ExtResource( 9 )
 shape = SubResource( 7 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -425.0
 margin_top = -30.0
 margin_right = -385.0
